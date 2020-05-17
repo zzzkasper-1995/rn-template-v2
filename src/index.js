@@ -1,13 +1,13 @@
 import React from 'react';
 import {Text, TextInput} from 'react-native';
 import {Provider} from 'react-redux';
-import {setProvider} from './library/Navigation';
+import {setProvider} from './library/Functional/Navigation';
 import {initModules} from './routes';
 import {initRoutes} from './routes';
 import configureStore from './redux/store';
 import {Log} from './library';
 
-// Нужно для того что бы текст не скейлился в зависимости от настроек телефона
+// Отменяем системный автоскейл текста устанвливаемый настройками телефона
 Text.defaultProps = Text.defaultProps || {};
 Text.defaultProps.allowFontScaling = false;
 TextInput.defaultProps = TextInput.defaultProps || {};
@@ -28,9 +28,7 @@ function ReduxProvider(Component) {
 
 /** Точка входа */
 export default async function runApp() {
-  Log('runApp');
   setProvider(ReduxProvider);
   initModules();
   initRoutes();
-  Log('runApp');
 }

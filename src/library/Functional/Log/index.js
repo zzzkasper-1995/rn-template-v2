@@ -1,4 +1,4 @@
-import Config from '../../config';
+import Config from '../../../config';
 
 const Log = (...params) => {
   if (Config.isLog) {

@@ -11,7 +11,7 @@ class Looper {
    * @returns экземпляр этого класса
    * @memberof Looper
    */
-  static instance() {
+  static instance(): Looper {
     if (!instance) {
       instance = new Looper();
     }

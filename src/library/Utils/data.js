@@ -1,5 +1,5 @@
 import moment from 'moment';
-import I from '../I18n';
+import I from '../Functional/I18n';
 import 'moment/locale/ru';
 
 moment.locale('ru');

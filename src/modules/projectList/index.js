@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
-// import {bindActionCreators} from 'redux';
 import Component from './Component';
-// import * as appAction from '../reducers/app-reducer'
+import methods from './methods';
+import {bindActionCreators} from 'redux';
 // import { menuItemsSelector } from '../selectors/app-selectors'
 
 function stateToProps(state) {
@@ -11,9 +11,7 @@ function stateToProps(state) {
 }
 
 function dispatchToProps(dispatch) {
-  return {
-    // setMenuItem: bindActionCreators(appAction, dispatch).setMenuItem,
-  };
+  return bindActionCreators(methods, dispatch);
 }
 
 export default connect(stateToProps, dispatchToProps)(Component);

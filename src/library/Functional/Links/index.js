@@ -1,7 +1,7 @@
 import {Linking, Alert, Platform} from 'react-native';
 import AndroidOpenSettings from 'react-native-android-open-settings';
 import Log from '../Log';
-import Config from '../../config';
+import Config from '../../../config';
 import I from '../I18n';
 
 /**
@@ -9,9 +9,7 @@ import I from '../I18n';
  * @param {String} url  ссылка для открытия
  */
 const onLinking = (url) => {
-  Log('onLinking', url);
   const protocol = (url.match(/^([a-zA-Z]+):\/\//) || [])[0];
-  Log('protocol', protocol);
   switch (protocol) {
     case 'https://':
     case 'http://': {

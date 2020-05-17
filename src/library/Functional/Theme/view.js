@@ -1,4 +1,4 @@
-import {Platform} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 import Color from './color/default';
 
 export default {
@@ -18,11 +18,7 @@ export default {
     elevation: 6,
   },
   absolute: {
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    right: 0,
-    bottom: 0,
+    ...StyleSheet.absoluteFillObject,
   },
   icon: {
     width: 16,

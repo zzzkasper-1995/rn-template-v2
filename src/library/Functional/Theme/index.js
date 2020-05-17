@@ -4,7 +4,6 @@ import color from './color';
 import view from './view';
 import text from './text';
 import simple from './simple';
-import macro from './macro';
 import {getConstans} from '../Navigation';
 
 const {width, height} = Dimensions.get('window');
@@ -50,7 +49,6 @@ let theme = {
   simple,
   text,
   view,
-  macro,
   constans: getConstans(),
 };
 
@@ -61,7 +59,6 @@ const setTheme = (typeTheme) => {
     simple,
     text,
     view,
-    macro,
     constans: getConstans(),
   };
   callBackUpdateTheme && callBackUpdateTheme(theme);

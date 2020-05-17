@@ -19,7 +19,7 @@ const persistConfig = {
 export default function configureStore() {
   let enhacers;
 
-  if (config.redux.isLogger && __DEV__ === true) {
+  if (config?.redux?.isLogger && __DEV__ === true) {
     enhacers = applyMiddleware(thunk, createLogger({collapsed: true}));
   } else {
     enhacers = applyMiddleware(thunk);
