@@ -10,11 +10,11 @@ moment.locale('ru');
  * @param {String} format *необходимый формат
  * @memberof module:Utils
  */
-const getDate = (date, format = null) => {
+const getDate = (date = Date.now(), format = null) => {
   if (format) {
     return moment(date).format(format);
   }
-  return moment(date).format('DD MMM YYYY');
+  return moment(date).format('YYYY-MM-DD');
 };
 
 /**

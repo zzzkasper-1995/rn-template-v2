@@ -65,7 +65,7 @@ const objectIdTime = {};
  * @param {Function} callback функция обратного вызова которую стоит выполнить
  * @param {Number} time интервал в который стоит выполнить функцию (ms)
  */
-export const functionLast = (id, callback, time) => {
+const functionLast = (id, callback, time) => {
   clearTimeout(objectIdTime[id]);
   objectIdTime[id] = setTimeout(callback, time);
 };
@@ -281,11 +281,10 @@ const getObjectMsg = ({text = ''}) => {
   }
 };
 
-export default {
+export {
   fromDecode,
   fromEncode,
   firstLetterCaps,
-  numeral: Numeral,
   sleep,
   rounding,
   functionLast,

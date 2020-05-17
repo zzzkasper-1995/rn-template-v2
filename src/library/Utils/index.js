@@ -1,11 +1,8 @@
 /** @module Utils */
 
-import Data from './data';
-import Structure from './structure';
-import Any from './any';
+import * as data from './data';
+import * as structure from './structure';
+import * as any from './any';
 
-export default {
-  ...Data,
-  ...Structure,
-  ...Any,
-};
+const Utils = {...data, ...structure, ...any};
+export {Utils};
