@@ -9,7 +9,8 @@ import {mergeOptions} from '../Navigation';
  * @param {*} {isBack}
  * @returns
  */
-export default function ModuleWrapper(Component, {isBack = true}) {
+export default function ModuleWrapper(Component, params = {}) {
+  const {isBack = true} = params;
   return class extends React.Component {
     constructor(props) {
       super(props);

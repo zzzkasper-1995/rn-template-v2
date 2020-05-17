@@ -6,24 +6,24 @@ import styleCreator from './styles';
 class TabOne extends React.Component {
   constructor(props) {
     super(props);
-
-    this.styles = Theme.createStyles(styleCreator);
   }
 
   changeTheme = () => {
     Theme.setTheme('Dark');
-    this.styles = Theme.createStyles(styleCreator);
     this.forceUpdate();
   };
 
   render() {
-    const {styles} = this;
+    Log('render TabOne');
+    const styles = Theme.createStyles(styleCreator);
 
     return (
       <SafeAreaView style={styles.safeArea}>
         <ScrollView style={styles.mainContainer}>
-          <Text style={{width: 200, height: 200, backgroundColor: 'red'}}>
-          TabOne
+          <Text
+            onPress={this.changeTheme}
+            style={{width: 200, height: 200, backgroundColor: 'red'}}>
+            TabOne
           </Text>
         </ScrollView>
       </SafeAreaView>

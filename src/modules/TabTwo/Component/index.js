@@ -2,27 +2,23 @@ import React from 'react';
 import {SafeAreaView, ScrollView, Text} from 'react-native';
 import {Theme, Log} from '../../../library';
 import styleCreator from './styles';
+import ModuleWrapper from '../../../library/Functional/Component';
 
 class TabTwo extends React.Component {
   constructor(props) {
     super(props);
-
-    this.styles = Theme.createStyles(styleCreator);
   }
 
-  changeTheme = () => {
-    Theme.setTheme('Default');
-    this.styles = Theme.createStyles(styleCreator);
-    this.forceUpdate();
-  };
-
   render() {
-    const {styles} = this;
+    Log('render Tabtwo');
+    const styles = Theme.createStyles(styleCreator);
 
     return (
       <SafeAreaView style={styles.safeArea}>
         <ScrollView style={styles.mainContainer}>
-          <Text style={{width: 200, height: 200, backgroundColor: 'red'}}>
+          <Text
+            onPress={this.changeTheme}
+            style={{width: 200, height: 200, backgroundColor: 'red'}}>
             TabTwo
           </Text>
         </ScrollView>
@@ -31,4 +27,4 @@ class TabTwo extends React.Component {
   }
 }
 
-export default TabTwo;
+export default ModuleWrapper(TabTwo);

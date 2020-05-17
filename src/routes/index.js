@@ -8,6 +8,7 @@ import {TAB_ONE, TAB_TWO} from './screenName';
 
 import TabTwo from '../modules/TabTwo';
 import TabOne from '../modules/TabOne';
+import {Log} from '../library';
 
 /** Инициализация модулей */
 export function initModules() {
@@ -21,4 +22,19 @@ export function initRoutes() {
     // Navigation.setDefaultOptions(settingsDefault);
     setRoot(rootMainApp);
   });
+
+  // наблюдаем за нажатиями на табы
+  // Navigation.events().registerBottomTabSelectedListener(async (event) => {
+  //   Log('registerBottomTabSelectedListener', event);
+  // });
+
+  // // наблюдаем какие экраны пользователь закрыл
+  // Navigation.events().registerComponentDidDisappearListener(async (event) => {
+  //   Log('registerComponentDidDisappearListener', event);
+  // });
+
+  // // наблюдаем какие экраны пользователь открыл
+  // Navigation.events().registerComponentDidAppearListener(async (event) => {
+  //   Log('registerComponentDidAppearListener', event);
+  // });
 }

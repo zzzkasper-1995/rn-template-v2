@@ -1,3 +1,4 @@
+var EventEmitter = require('events');
 import Log from '../Log';
 
 let instance;
@@ -9,6 +10,8 @@ class Theme {
     this.colorKit = {
       default: {},
     }; // наборы цветов
+
+    this.eventEmiter = new EventEmitter();
   }
 
   static instance(): Theme {
@@ -26,6 +29,20 @@ class Theme {
     } else {
       this.name = 'Default';
     }
+
+    this.eventEmiter.emit('changeTheme', this.name);
+  }
+
+  getName(): String {
+    return this.name;
+  }
+
+  addEventListener(callback, name) {
+    this.eventEmiter.on('changeTheme', function () {
+      try {
+        callback?.();
+      } catch {}
+    });
   }
 
   /** Задать наборы цветов */
