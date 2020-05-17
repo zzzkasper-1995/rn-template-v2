@@ -1,13 +1,20 @@
 import {setMenuItem} from '../../redux/modules/app/actions';
+import {getLastSession} from '../../api/request';
+import {Log} from '../../library';
 
 /**
  * @description методы для модуля TabOne
  * @private
  */
-const pdfviewer = {};
+const methods = {};
 
-pdfviewer.onClose = (params) => async (dispatch, getState) => {
+methods.onClose = (params) => async (dispatch, getState) => {
   dispatch(setMenuItem('name'));
 };
 
-export default pdfviewer;
+methods.loadingLastSession = (params) => async (dispatch, getState) => {
+  Log('methods.loadingLastSession', params);
+  getLastSession();
+};
+
+export default methods;

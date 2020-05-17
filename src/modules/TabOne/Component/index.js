@@ -6,6 +6,8 @@ import styleCreator from './styles';
 class TabOne extends React.Component {
   constructor(props) {
     super(props);
+
+    props.loadingLastSession();
   }
 
   changeTheme = () => {

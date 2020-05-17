@@ -1,12 +1,12 @@
 import React from 'react';
 import {Text, TextInput} from 'react-native';
 import {Provider} from 'react-redux';
-import {setProvider} from './library/Functional/Navigation';
 import {initModules} from './routes';
 import {initRoutes} from './routes';
 import configureStore from './redux/store';
-import {Log, Theme} from './library';
+import {Log, Theme, Navigation} from './library';
 import theming from './theming';
+import {getStock} from './api/request';
 
 // Отменяем системный автоскейл текста устанвливаемый настройками телефона
 Text.defaultProps = Text.defaultProps || {};
@@ -30,7 +30,7 @@ function ReduxProvider(Component) {
 /** Точка входа */
 export default async function runApp() {
   Theme.setColorKit(theming.Color);
-  setProvider(ReduxProvider);
+  Navigation.setProvider(ReduxProvider);
   initModules();
   initRoutes();
 }

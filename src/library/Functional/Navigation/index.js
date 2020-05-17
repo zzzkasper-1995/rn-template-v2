@@ -1,6 +1,7 @@
 /** @module Navigation */
 import {Navigation} from 'react-native-navigation';
 import {gestureHandlerRootHOC} from 'react-native-gesture-handler';
+import {EventsRegistry} from 'react-native-navigation/lib/dist/events/EventsRegistry';
 // import {Log} from '../../library';
 
 let targetScreen; // id текущего экрана
@@ -259,9 +260,9 @@ const getConstans = () => {
 const setListenerModalClose = (nameModal, callback) => {
   dbModalListener[nameModal] = callback;
 };
+const events = (): EventsRegistry => Navigation.events();
 
-export {
-  Navigation,
+export default {
   registerComponent,
   pop,
   push,
@@ -280,4 +281,5 @@ export {
   initConstans,
   getConstans,
   setListenerModalClose,
+  events,
 };

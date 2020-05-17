@@ -1,26 +1,21 @@
-import {
-  Navigation,
-  registerComponent,
-  setRoot,
-} from '../library/Functional/Navigation';
+import {Navigation} from '../library';
 import {rootMainApp} from './roots';
 import {TAB_ONE, TAB_TWO} from './screenName';
 
 import TabTwo from '../modules/TabTwo';
 import TabOne from '../modules/TabOne';
-import {Log} from '../library';
 
 /** Инициализация модулей */
 export function initModules() {
-  registerComponent(TAB_ONE, TabOne);
-  registerComponent(TAB_TWO, TabTwo);
+  Navigation.registerComponent(TAB_ONE, TabOne);
+  Navigation.registerComponent(TAB_TWO, TabTwo);
 }
 
 /** Инициализация дерева навигаци */
 export function initRoutes() {
   Navigation.events().registerAppLaunchedListener(async () => {
     // Navigation.setDefaultOptions(settingsDefault);
-    setRoot(rootMainApp);
+    Navigation.setRoot(rootMainApp);
   });
 
   // наблюдаем за нажатиями на табы

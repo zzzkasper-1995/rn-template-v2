@@ -1,6 +1,6 @@
 import React from 'react';
 import {BackHandler} from 'react-native';
-import {mergeOptions} from '../Navigation';
+import Navigation from '../Navigation';
 
 /**
  * Обертка над компонентами
@@ -44,7 +44,7 @@ export default function ModuleWrapper(Component, params = {}) {
     iosSwipeBack = () => {
       const {componentId} = this.props;
 
-      mergeOptions(componentId, {
+      Navigation.mergeOptions(componentId, {
         popGesture: isBack,
       });
     };
