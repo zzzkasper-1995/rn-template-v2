@@ -1,87 +1,54 @@
-import {Dimensions} from 'react-native';
+import Log from '../Log';
 
-import color from './color';
-import view from './view';
-import text from './text';
-import simple from './simple';
-import {getConstans} from '../Navigation';
+let instance;
 
-const {width, height} = Dimensions.get('window');
+/** Управляем цвето-темой */
+class Theme {
+  constructor() {
+    this.name = 'Default'; // имя текущенй темы
+    this.colorKit = {
+      default: {},
+    }; // наборы цветов
+  }
 
-// примерная диагональ экрана
-let screenSize;
+  static instance(): Theme {
+    if (!instance) {
+      instance = new Theme();
+    }
+    return instance;
+  }
 
-// iphone 5/SE (4")
-if (height > 0) {
-  // width: 320, height: 568
-  screenSize = 4;
-}
-// iphone 6 (4.7")
-if (height > 568) {
-  // width: 375, height: 667
-  screenSize = 4.7;
-}
-// iphone X (5.8")
-if (height > 667) {
-  // width: 375, height: 812
-  screenSize = 5.8;
-}
-// iphone 11 Pro Max (6.5")
-if (height > 812) {
-  // width: 414, height: 896
-  screenSize = 6.5;
-}
+  /** Задать имя используемой темы */
+  setTheme(name: String): void {
+    Log('Theme setTheme', name);
+    if (this.colorKit[this.name]) {
+      this.name = name;
+    } else {
+      this.name = 'Default';
+    }
+  }
 
-const params = {
-  screenSize,
-  height,
-  width,
-};
+  /** Задать наборы цветов */
+  setColorKit(kit: Object): void {
+    Log('Theme setColorKit', kit);
+    this.colorKit = kit;
+  }
 
-const getSimpleConst = () => {
-  return simple;
-};
+  /** Получить цвета текущей темы */
+  getColors(): Object {
+    Log('Theme getColors');
+    return this.colorKit[this.name] || {};
+  }
 
-let type;
-let callBackUpdateTheme;
-let theme = {
-  color: color(() => type),
-  simple,
-  text,
-  view,
-  constans: getConstans(),
-};
-
-const setTheme = (typeTheme) => {
-  type = typeTheme;
-  theme = {
-    color: color(() => type),
-    simple,
-    text,
-    view,
-    constans: getConstans(),
+  /** Обертка над созданием стилей */
+  createStyles = (creator) => {
+    Log('Theme createStyles');
+    const theme = {color: this.getColors()};
+    Log('createStyles2');
+    return creator(theme);
   };
-  callBackUpdateTheme && callBackUpdateTheme(theme);
-};
+}
 
-/** Вешает слушателя на обновление темы
- * @param {Function} call слушатель на обновление темы
- */
-const onUpdateTheme = (call) => {
-  callBackUpdateTheme = call;
-};
+const ThemerRN = Theme.instance();
 
-const createStyles = (creator) => creator(theme, params);
-
-const getColors = () => theme.color;
-
-export default {
-  type,
-  onUpdateTheme,
-  theme,
-  setTheme,
-  createStyles,
-  getColors,
-  getSimpleConst,
-  getConstans,
-};
+export default ThemerRN;

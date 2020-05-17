@@ -1,4 +1,5 @@
 import {I} from '../library';
+import {TAB_ONE, TAB_TWO} from './screenName';
 
 export const rootMainApp = {
   root: {
@@ -19,8 +20,8 @@ export const rootMainApp = {
             children: [
               {
                 component: {
-                  id: 'projectList',
-                  name: 'projectList',
+                  id: TAB_ONE,
+                  name: TAB_ONE,
                 },
               },
             ],
@@ -38,8 +39,8 @@ export const rootMainApp = {
             children: [
               {
                 component: {
-                  id: 'projectList',
-                  name: 'projectList',
+                  id: TAB_TWO,
+                  name: TAB_TWO,
                 },
               },
             ],

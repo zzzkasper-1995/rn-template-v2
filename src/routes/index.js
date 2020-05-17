@@ -1,11 +1,18 @@
-import {Navigation, registerComponent, setRoot} from '../library/Functional/Navigation';
-import projectList from '../modules/projectList';
+import {
+  Navigation,
+  registerComponent,
+  setRoot,
+} from '../library/Functional/Navigation';
 import {rootMainApp} from './roots';
-import {PROJECT_LIST} from './screenName';
+import {TAB_ONE, TAB_TWO} from './screenName';
+
+import TabTwo from '../modules/TabTwo';
+import TabOne from '../modules/TabOne';
 
 /** Инициализация модулей */
 export function initModules() {
-  registerComponent(PROJECT_LIST, projectList);
+  registerComponent(TAB_ONE, TabOne);
+  registerComponent(TAB_TWO, TabTwo);
 }
 
 /** Инициализация дерева навигаци */

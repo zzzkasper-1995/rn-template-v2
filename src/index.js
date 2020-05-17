@@ -5,7 +5,8 @@ import {setProvider} from './library/Functional/Navigation';
 import {initModules} from './routes';
 import {initRoutes} from './routes';
 import configureStore from './redux/store';
-import {Log} from './library';
+import {Log, Theme} from './library';
+import theming from './theming';
 
 // Отменяем системный автоскейл текста устанвливаемый настройками телефона
 Text.defaultProps = Text.defaultProps || {};
@@ -28,6 +29,7 @@ function ReduxProvider(Component) {
 
 /** Точка входа */
 export default async function runApp() {
+  Theme.setColorKit(theming.Color);
   setProvider(ReduxProvider);
   initModules();
   initRoutes();

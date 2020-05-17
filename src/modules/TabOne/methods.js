@@ -1,7 +1,7 @@
 import {setMenuItem} from '../../redux/modules/app/actions';
 
 /**
- * @description методы для модуля projectList
+ * @description методы для модуля TabOne
  * @private
  */
 const pdfviewer = {};

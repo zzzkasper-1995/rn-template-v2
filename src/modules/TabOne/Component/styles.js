@@ -1,17 +1,19 @@
 import {StyleSheet} from 'react-native';
-import {Theme} from '../../../library';
 
 export default (theme) =>
   StyleSheet.create({
+    safeArea: {
+      flex: 1,
+    },
     mainContainer: {
       flex: 1,
-      backgroundColor: Theme.getColors().BACKGROUND,
+      backgroundColor: theme.color.background,
     },
     content: {
       flex: 1,
       justifyContent: 'space-between',
     },
     list: {
-      backgroundColor: Theme.getColors().NOTIFY,
+      backgroundColor: theme.color.background,
     },
   });

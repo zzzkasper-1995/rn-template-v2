@@ -1,9 +1,11 @@
-import Color from './color/default';
 import simple from './simple';
+import {Theme} from '../library';
+
+const Color = Theme.getColors();
 
 export default {
   normal: {
-    color: Color.PRIMARY_TEXT,
+    color: Color.primaryText,
     fontSize: 16,
   },
   smallBold: {
@@ -15,6 +17,6 @@ export default {
   primaryText: {
     fontSize: 16,
     fontWeight: simple.fontWeight.bold,
-    color: Color.PRIMARY_TEXT,
+    color: Color.primaryText,
   },
 };

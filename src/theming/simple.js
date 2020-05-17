@@ -1,5 +1,4 @@
 import {Dimensions, Platform} from 'react-native';
-
 const {width, height} = Dimensions.get('window');
 
 export default {
@@ -18,11 +17,7 @@ export default {
     width,
     height,
   },
-  margin: {
-    normal: 16,
-    mini: 8,
-  },
-  padding: {
+  indent: {
     normal: 16,
     mini: 8,
   },
