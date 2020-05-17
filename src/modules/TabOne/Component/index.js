@@ -1,12 +1,11 @@
 import React from 'react';
 import {SafeAreaView, ScrollView, Text} from 'react-native';
-import {Theme, Log} from '../../../library';
+import {Theme, Log, ModuleWrapper} from '../../../library';
 import styleCreator from './styles';
 
 class TabOne extends React.Component {
   constructor(props) {
     super(props);
-
     props.loadingLastSession();
   }
 
@@ -25,7 +24,7 @@ class TabOne extends React.Component {
           <Text
             onPress={this.changeTheme}
             style={{width: 200, height: 200, backgroundColor: 'red'}}>
-            TabOne
+            Theme Dark
           </Text>
         </ScrollView>
       </SafeAreaView>
@@ -33,4 +32,4 @@ class TabOne extends React.Component {
   }
 }
 
-export default TabOne;
+export default ModuleWrapper(TabOne, {styleCreator: styleCreator});

@@ -1,4 +1,4 @@
-export {default as Component} from './Component';
+export {default as ModuleWrapper} from './Component';
 export {default as I} from './I18n';
 export {default as Links} from './Links';
 export {default as Navigation} from './Navigation';
