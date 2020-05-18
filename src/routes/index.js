@@ -2,9 +2,9 @@ import {Navigation} from '../library';
 import {rootMainApp} from './roots';
 import {TAB_ONE, TAB_TWO, DRAGGABLE} from './screenName';
 
-import TabTwo from '../modules/TabTwo';
-import TabOne from '../modules/TabOne';
-import Draggable from '../modules/Draggable';
+import TabTwo from '../screens/TabTwo';
+import TabOne from '../screens/TabOne';
+import Draggable from '../screens/Draggable';
 
 /** Инициализация модулей */
 export function initModules() {

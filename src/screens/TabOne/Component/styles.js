@@ -7,7 +7,7 @@ export default (theme) =>
     },
     mainContainer: {
       flex: 1,
-      backgroundColor: theme.color.background,
+      // backgroundColor: theme.color.background,
       paddingTop: 40,
     },
     content: {
@@ -15,9 +15,9 @@ export default (theme) =>
     },
     text: {
       fontSize: 20,
-      color: theme.color.primary,
+      // color: theme.color.primary,
     },
     list: {
-      backgroundColor: theme.color.background,
+      // backgroundColor: theme.color.background,
     },
   });

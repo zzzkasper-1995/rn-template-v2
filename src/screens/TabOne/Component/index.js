@@ -16,10 +16,28 @@ class TabOne extends React.Component {
 
   render() {
     Log('render TabOne');
-    const styles = Theme.createStyles(styleCreator);
+
+    const set = {
+      mainContainer: {
+        flex: 1,
+        backgroundColor: '$background',
+        paddingTop: 40,
+      },
+      content: {
+        alignItems: 'center',
+      },
+      text: {
+        fontSize: 20,
+        color: '$primary',
+      },
+      list: {
+        backgroundColor: '$background',
+      },
+    };
+    const styles = Theme.create(set);
 
     return (
-      <SafeAreaView style={styles.safeArea}>
+      <SafeAreaView style={styles.mainContainer}>
         <ScrollView
           style={styles.mainContainer}
           contentContainerStyle={styles.content}>

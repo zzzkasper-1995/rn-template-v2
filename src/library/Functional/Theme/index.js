@@ -64,6 +64,30 @@ class Theme {
     Log('createStyles2');
     return creator(theme);
   };
+
+  create = (style: Object = {}): Object => {
+    const colors = this.getColors();
+    const res = {...style};
+
+    // пробегаемсмя по стилям и ищем в них свойства связаные с color
+    Object.keys(style).forEach((key) => {
+      const item = style[key];
+      Object.keys(item || {}).forEach((property) => {
+        const colorValue = item[property];
+
+        // если у имени свойства есть color и  значение задано как цветовой код
+        if (
+          property?.toLowerCase().includes('color') &&
+          colorValue.includes('$')
+        ) {
+          res[key][property] = colors[`${colorValue}`.replace('$', '')];
+        }
+      });
+    });
+
+    Log('res', res);
+    return res;
+  };
 }
 
 const ThemerRN = Theme.instance();
