@@ -3,19 +3,13 @@ import {SafeAreaView, ScrollView, Text} from 'react-native';
 import {Theme, Log, ModuleWrapper} from '../../../library';
 import styleCreator from './styles';
 
-class TabOne extends React.Component {
+class Draggable extends React.Component {
   constructor(props) {
     super(props);
-    props.loadingLastSession();
   }
 
-  changeTheme = () => {
-    Theme.setTheme('Dark');
-    this.forceUpdate();
-  };
-
   render() {
-    Log('render TabOne');
+    Log('render Draggable');
     const styles = Theme.createStyles(styleCreator);
 
     return (
@@ -23,13 +17,11 @@ class TabOne extends React.Component {
         <ScrollView
           style={styles.mainContainer}
           contentContainerStyle={styles.content}>
-          <Text onPress={this.changeTheme} style={styles.text}>
-            Theme Dark
-          </Text>
+          <Text style={styles.text}>Draggable</Text>
         </ScrollView>
       </SafeAreaView>
     );
   }
 }
 
-export default ModuleWrapper(TabOne, {styleCreator: styleCreator});
+export default ModuleWrapper(Draggable, {styleCreator: styleCreator});

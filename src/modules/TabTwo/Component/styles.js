@@ -8,10 +8,14 @@ export default (theme) =>
     mainContainer: {
       flex: 1,
       backgroundColor: theme.color.background,
+      paddingTop: 40,
     },
     content: {
-      flex: 1,
-      justifyContent: 'space-between',
+      alignItems: 'center',
+    },
+    text: {
+      fontSize: 20,
+      color: theme.color.primary,
     },
     list: {
       backgroundColor: theme.color.background,

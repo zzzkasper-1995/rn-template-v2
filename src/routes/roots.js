@@ -14,7 +14,7 @@ export const rootMainApp = {
             options: {
               bottomTab: {
                 // icon: IconSources.SEARCH,
-                text: I.text('Проекты'),
+                text: I.text('Таб1'),
               },
             },
             children: [
@@ -33,7 +33,7 @@ export const rootMainApp = {
             options: {
               bottomTab: {
                 // icon: IconSources.CHAT,
-                text: I.text('Инфо'),
+                text: I.text('Таб2'),
               },
             },
             children: [

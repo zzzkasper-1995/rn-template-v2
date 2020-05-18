@@ -1,14 +1,16 @@
 import {Navigation} from '../library';
 import {rootMainApp} from './roots';
-import {TAB_ONE, TAB_TWO} from './screenName';
+import {TAB_ONE, TAB_TWO, DRAGGABLE} from './screenName';
 
 import TabTwo from '../modules/TabTwo';
 import TabOne from '../modules/TabOne';
+import Draggable from '../modules/Draggable';
 
 /** Инициализация модулей */
 export function initModules() {
   Navigation.registerComponent(TAB_ONE, TabOne);
   Navigation.registerComponent(TAB_TWO, TabTwo);
+  Navigation.registerComponent(DRAGGABLE, Draggable);
 }
 
 /** Инициализация дерева навигаци */

@@ -2,6 +2,7 @@
 import {Navigation} from 'react-native-navigation';
 import {gestureHandlerRootHOC} from 'react-native-gesture-handler';
 import {EventsRegistry} from 'react-native-navigation/lib/dist/events/EventsRegistry';
+import Log from '../Log';
 // import {Log} from '../../library';
 
 let targetScreen; // id текущего экрана
@@ -205,18 +206,14 @@ const dbModal = {};
  * @param {Object} options  параметры
  */
 const showModal = (name, options, passProps = {}) => {
-  if (targetModal !== name) {
-    targetModal = name;
-    dbModal[name] = true;
-    Navigation.showModal({
-      component: {
-        id: name,
-        name,
-        options,
-        passProps,
-      },
-    });
-  }
+  Navigation.showModal({
+    component: {
+      id: name,
+      name,
+      options,
+      passProps,
+    },
+  });
 };
 
 /**
