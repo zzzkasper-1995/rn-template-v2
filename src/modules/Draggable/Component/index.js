@@ -1,24 +1,26 @@
 import React from 'react';
 import {SafeAreaView, ScrollView, Text} from 'react-native';
 import {Theme, Log, ModuleWrapper} from '../../../library';
-import styleCreator from './styles';
+import styleCreator, {tStyle} from './styles';
+import DraggableView from './DraggableView/index2';
 
-class Draggable extends React.Component {
+type Props = {
+  styles: tStyle,
+};
+class Draggable extends React.Component<Props> {
   constructor(props) {
     super(props);
   }
 
   render() {
     Log('render Draggable');
-    const styles = Theme.createStyles(styleCreator);
+    const {styles} = this.props;
+    // const styles = Theme.createStyles(styleCreator);
 
     return (
       <SafeAreaView style={styles.safeArea}>
-        <ScrollView
-          style={styles.mainContainer}
-          contentContainerStyle={styles.content}>
-          <Text style={styles.text}>Draggable</Text>
-        </ScrollView>
+        <Text style={styles.text}>Draggable</Text>
+        <DraggableView />
       </SafeAreaView>
     );
   }
