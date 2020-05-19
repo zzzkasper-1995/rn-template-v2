@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaView, ScrollView, Text} from 'react-native';
 import {Log, Theme, ModuleWrapper} from '../../../library';
-import styleCreator from './styles';
+import styles from './styles';
 
 class TabTwo extends React.Component {
   changeTheme = () => {
@@ -11,10 +11,9 @@ class TabTwo extends React.Component {
 
   render() {
     Log('render Tabtwo');
-    const styles = Theme.createStyles(styleCreator);
 
     return (
-      <SafeAreaView style={this.props.styles.safeArea}>
+      <SafeAreaView style={styles.safeArea}>
         <ScrollView
           style={styles.mainContainer}
           contentContainerStyle={styles.content}>
@@ -30,4 +29,4 @@ class TabTwo extends React.Component {
   }
 }
 
-export default ModuleWrapper(TabTwo, {styleCreator: styleCreator});
+export default ModuleWrapper(TabTwo);

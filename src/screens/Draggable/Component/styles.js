@@ -1,8 +1,9 @@
 import {StyleSheet} from 'react-native';
+import {Theme} from '../../../library';
 
-const set = {
+export default Theme.create({
   safeArea: {
-    flex: 1,
+    flex: 3,
   },
   mainContainer: {
     flex: 1,
@@ -19,6 +20,4 @@ const set = {
   list: {
     // backgroundColor: theme.color.background,
   },
-};
-
-export default () => StyleSheet.create(set);
+});

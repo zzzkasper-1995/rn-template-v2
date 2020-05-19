@@ -1,23 +1,23 @@
 import {StyleSheet} from 'react-native';
+import {Theme} from '../../../library';
 
-export default (theme) =>
-  StyleSheet.create({
-    safeArea: {
-      flex: 1,
-    },
-    mainContainer: {
-      flex: 1,
-      // backgroundColor: theme.color.background,
-      paddingTop: 40,
-    },
-    content: {
-      alignItems: 'center',
-    },
-    text: {
-      fontSize: 20,
-      // color: theme.color.primary,
-    },
-    list: {
-      // backgroundColor: theme.color.background,
-    },
-  });
+export default Theme.create({
+  safeArea: {
+    flex: 1,
+  },
+  mainContainer: {
+    flex: 1,
+    backgroundColor: '$background',
+    paddingTop: 40,
+  },
+  content: {
+    alignItems: 'center',
+  },
+  text: {
+    fontSize: 20,
+    color: '$primary',
+  },
+  list: {
+    backgroundColor: '$background',
+  },
+});

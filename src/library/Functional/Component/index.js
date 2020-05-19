@@ -11,16 +11,16 @@ import {Theme} from '..';
  * @returns
  */
 export default function ModuleWrapper(Component, params = {}) {
-  const {isBack = true, styleCreator = {}} = params;
+  const {isBack = true} = params;
   return class extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {styles: Theme.createStyles(styleCreator)};
+      this.state = {
+        theme: Theme.getName(),
+      };
 
       this.iosSwipeBack();
-      Theme.addEventListener(() =>
-        this.setState({styles: Theme.createStyles(styleCreator)}),
-      );
+      Theme.addEventListener((theme) => this.setState({theme}));
     }
 
     componentDidMount() {
@@ -63,7 +63,9 @@ export default function ModuleWrapper(Component, params = {}) {
     };
 
     render() {
-      return <Component styles={this.state.styles} {...this.props} />;
+      const {theme} = this.state;
+
+      return <Component theme={theme} {...this.props} />;
     }
   };
 }
