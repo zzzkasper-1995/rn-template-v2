@@ -259,6 +259,8 @@ const setListenerModalClose = (nameModal, callback) => {
 };
 const events = (): EventsRegistry => Navigation.events();
 
+const setDefaultOptions = (options) => Navigation.setDefaultOptions(options);
+
 export default {
   registerComponent,
   pop,
@@ -279,4 +281,5 @@ export default {
   getConstans,
   setListenerModalClose,
   events,
+  setDefaultOptions,
 };

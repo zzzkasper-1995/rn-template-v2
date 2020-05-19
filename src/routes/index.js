@@ -5,6 +5,7 @@ import {TAB_ONE, TAB_TWO, DRAGGABLE} from './screenName';
 import TabTwo from '../screens/TabTwo';
 import TabOne from '../screens/TabOne';
 import Draggable from '../screens/Draggable';
+import {settingsDefault} from './settings';
 
 /** Инициализация модулей */
 export function initModules() {
@@ -16,7 +17,7 @@ export function initModules() {
 /** Инициализация дерева навигаци */
 export function initRoutes() {
   Navigation.events().registerAppLaunchedListener(async () => {
-    // Navigation.setDefaultOptions(settingsDefault);
+    Navigation.setDefaultOptions(settingsDefault);
     Navigation.setRoot(rootMainApp);
   });
 

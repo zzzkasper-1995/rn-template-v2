@@ -1,5 +1,6 @@
 import {I} from '../library';
 import {TAB_ONE, TAB_TWO} from './screenName';
+import assets from '../assets';
 
 export const rootMainApp = {
   root: {
@@ -13,7 +14,7 @@ export const rootMainApp = {
             id: 'projectStack',
             options: {
               bottomTab: {
-                // icon: IconSources.SEARCH,
+                icon: assets.CHAT,
                 text: I.text('Таб1'),
               },
             },
@@ -32,7 +33,7 @@ export const rootMainApp = {
             id: 'infoStack',
             options: {
               bottomTab: {
-                // icon: IconSources.CHAT,
+                icon: assets.PROFILE,
                 text: I.text('Таб2'),
               },
             },

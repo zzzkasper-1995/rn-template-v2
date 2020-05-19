@@ -26,15 +26,17 @@ class Theme {
   /** Задать имя используемой темы */
   setTheme(name: String): void {
     Log('Theme setTheme', name);
-    if (this.colorKit[this.name]) {
-      this.name = name;
-    } else {
-      this.name = 'Default';
-    }
+    if (this.name !== name) {
+      if (this.colorKit[this.name]) {
+        this.name = name;
+      } else {
+        this.name = 'Default';
+      }
 
-    this.scheets.forEach((item) => item.calc(this.getColors()));
-    Log('this.scheets', this.scheets);
-    this.eventEmiter.emit('changeTheme', this.name);
+      this.scheets.forEach((item) => item.calc(this.getColors()));
+      Log('this.scheets', this.scheets);
+      this.eventEmiter.emit('changeTheme', this.name);
+    }
   }
 
   getName(): String {

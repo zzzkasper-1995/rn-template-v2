@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {Theme} from '../../../library';
+import { SimpleProperties } from '../../../theming';
 
 export default Theme.create({
   safeArea: {
@@ -13,11 +14,10 @@ export default Theme.create({
   content: {
     alignItems: 'center',
   },
-  text: {
-    fontSize: 20,
-    color: '$primary',
-  },
   list: {
     backgroundColor: '$background',
+  },
+  item: {
+    marginBottom: SimpleProperties.indent.normal,
   },
 });

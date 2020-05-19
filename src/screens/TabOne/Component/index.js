@@ -1,6 +1,7 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, Text} from 'react-native';
+import {SafeAreaView, ScrollView, Text, View} from 'react-native';
 import {Theme, Log, ModuleWrapper} from '../../../library';
+import {ViewStyles, TextStyles} from '../../../theming';
 import styles from './styles';
 
 class TabOne extends React.Component {
@@ -22,9 +23,11 @@ class TabOne extends React.Component {
         <ScrollView
           style={styles.mainContainer}
           contentContainerStyle={styles.content}>
-          <Text onPress={this.changeTheme} style={styles.text}>
-            Theme Dark
-          </Text>
+          <View style={[ViewStyles.item, ViewStyles.shadow, styles.item]}>
+            <Text onPress={this.changeTheme} style={TextStyles.normal}>
+              Theme Dark
+            </Text>
+          </View>
         </ScrollView>
       </SafeAreaView>
     );

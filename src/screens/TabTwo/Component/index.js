@@ -1,7 +1,8 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, Text} from 'react-native';
+import {SafeAreaView, ScrollView, Text, View} from 'react-native';
 import {Log, Theme, ModuleWrapper} from '../../../library';
 import styles from './styles';
+import {TextStyles, ViewStyles} from '../../../theming';
 
 class TabTwo extends React.Component {
   changeTheme = () => {
@@ -17,12 +18,18 @@ class TabTwo extends React.Component {
         <ScrollView
           style={styles.mainContainer}
           contentContainerStyle={styles.content}>
-          <Text onPress={this.changeTheme} style={styles.text}>
-            Theme Light
-          </Text>
-          <Text onPress={this.props.onOpenDraggable} style={styles.text}>
-            Open draggable
-          </Text>
+          <View style={[ViewStyles.item, ViewStyles.shadow, styles.item]}>
+            <Text onPress={this.changeTheme} style={TextStyles.normal}>
+              Theme Light
+            </Text>
+          </View>
+          <View style={[ViewStyles.item, ViewStyles.shadow, styles.item]}>
+            <Text
+              onPress={this.props.onOpenDraggable}
+              style={TextStyles.normal}>
+              Open draggable
+            </Text>
+          </View>
         </ScrollView>
       </SafeAreaView>
     );

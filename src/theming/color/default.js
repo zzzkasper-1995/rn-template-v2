@@ -1,7 +1,8 @@
 export default {
-  background: 'rgb(0,255,255)',
+  background: '#ffffff',
   primary: '#6200EE',
   secondary: '#03DAC6',
+  item: '#ffffff',
 
-  primaryText: '#131313',
+  primaryText: '#050505',
 };

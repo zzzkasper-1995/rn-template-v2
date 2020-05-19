@@ -1,22 +1,20 @@
 import simple from './simple';
 import {Theme} from '../library';
 
-const Color = Theme.getColors();
-
-export default {
+export default Theme.create({
   normal: {
-    color: Color.primaryText,
     fontSize: 16,
+    color: '$primaryText',
   },
   smallBold: {
     fontSize: 10,
     fontWeight: simple.fontWeight.bold,
-    color: Color.BLACK_LIGHT,
     opacity: 0.5,
+    color: '$primaryText',
   },
   primaryText: {
     fontSize: 16,
     fontWeight: simple.fontWeight.bold,
-    color: Color.primaryText,
+    color: '$primaryText',
   },
-};
+});
