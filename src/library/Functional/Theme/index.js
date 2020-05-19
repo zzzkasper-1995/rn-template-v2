@@ -65,14 +65,6 @@ class Theme {
     return this.colorKit[this.name] || {};
   }
 
-  /** Обертка над созданием стилей */
-  createStyles = (creator) => {
-    Log('Theme createStyles');
-    const theme = {color: this.getColors()};
-    Log('createStyles2');
-    return creator(theme);
-  };
-
   create = (style: Object = {}): Object => {
     Log('Theme create', {...style});
     const scheet = new Scheet(style);

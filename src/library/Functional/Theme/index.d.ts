@@ -13,7 +13,6 @@ declare namespace Theme {
     export function addEventListener(callback: Function): void;
     export function setColorKit(kit: Object): void;
     export function getColors(): Object;
-    export function createStyles(creator: Function): Object;
   
     // inherited from StyleSheet
     // export const flatten: typeof StyleSheet.flatten;
