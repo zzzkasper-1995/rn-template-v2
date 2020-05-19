@@ -1,4 +1,4 @@
-import {Theme} from '../library';
+import {Theme} from '../library/functional';
 import simple from './simple';
 
 export default Theme.create({

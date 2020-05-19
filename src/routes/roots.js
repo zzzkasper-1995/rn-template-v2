@@ -1,4 +1,4 @@
-import {I} from '../library';
+import {I} from '../library/functional';
 import {TAB_ONE, TAB_TWO} from './screenName';
 import assets from '../assets';
 

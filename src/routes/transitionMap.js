@@ -1,4 +1,4 @@
-import {Navigation, Log} from '../library';
+import {Navigation, Log} from '../library/functional';
 import {DRAGGABLE} from './screenName';
 import {openDraggable} from './action';
 

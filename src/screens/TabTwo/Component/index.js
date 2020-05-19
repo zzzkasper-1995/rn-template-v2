@@ -1,6 +1,6 @@
 import React from 'react';
 import {SafeAreaView, ScrollView, Text, View} from 'react-native';
-import {Log, Theme, ModuleWrapper} from '../../../library';
+import {Log, Theme, ModuleWrapper} from '../../../library/functional';
 import styles from './styles';
 import {TextStyles, ViewStyles} from '../../../theming';
 

@@ -1,5 +1,5 @@
 import simple from './simple';
-import {Theme} from '../library';
+import {Theme} from '../library/functional';
 
 export default Theme.create({
   normal: {

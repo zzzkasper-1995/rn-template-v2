@@ -2,25 +2,8 @@
 import {Navigation} from 'react-native-navigation';
 import {gestureHandlerRootHOC} from 'react-native-gesture-handler';
 import {EventsRegistry} from 'react-native-navigation/lib/dist/events/EventsRegistry';
-import Log from '../Log';
-// import {Log} from '../../library';
 
-let targetScreen; // id текущего экрана
-let targetModal; // id текущего экрана модального окна
-let lastScreen; // id экрана который был
 let provider; // обертка редакса
-let screenEventListenerDidAppear;
-let screenEventListenerDidDisappear;
-let screenEventListenerModalDismissed;
-let commandListener;
-
-const dbModalListener = {};
-const isWait = false; // для игнорирования сторонних операций во время совершения операции
-
-// const lastNameScreen = '';
-// const stack = []; // для стэк навигации (орентировочный маршрут)
-// let isSwipebl = true;
-// const timeWait = 1000; // ms
 
 /**
  * Переход назад по стек навигаци
@@ -39,18 +22,14 @@ const pop = (currentID, options = {}) => {
  * @param {Object} passProps пропса для передачи между экранами через натив
  */
 const push = (currentID, nameScreen, options = {}, passProps = {}) => {
-  if (targetScreen !== nameScreen) {
-    targetScreen = nameScreen;
-
-    Navigation.push(currentID, {
-      component: {
-        id: nameScreen,
-        name: nameScreen,
-        passProps,
-        options,
-      },
-    });
-  }
+  Navigation.push(currentID, {
+    component: {
+      id: nameScreen,
+      name: nameScreen,
+      passProps,
+      options,
+    },
+  });
 };
 
 /**
@@ -119,73 +98,19 @@ function registerComponent(name, component, isGesture = false) {
 }
 
 /**
- * Отслеживает последовательность открытия экранов пользователем
- * @param {String} root имя корня навигации
- * @param {Object} service сервисы для регистрации и отправки какой0либо информации
- */
-const traking = (root, service) => {
-  screenEventListenerDidAppear = Navigation.events().registerComponentDidAppearListener(
-    ({componentId, componentName}) => {
-      // Log('registerComponentDidAppearListener', componentId, componentName);
-      targetScreen = componentId;
-      if (targetScreen !== targetModal) {
-        targetModal = undefined;
-      }
-    },
-  );
-  screenEventListenerDidDisappear = Navigation.events().registerComponentDidDisappearListener(
-    ({componentId, componentName}) => {},
-  );
-  screenEventListenerModalDismissed = Navigation.events().registerModalDismissedListener(
-    ({componentId, modalsDismissed}) => {
-      // Log('screenEventListenerModalDismissed', dbModalListener, componentId, modalsDismissed);
-      dbModalListener[componentId] &&
-        dbModalListener[componentId](modalsDismissed);
-      targetModal = '';
-      targetScreen = '';
-    },
-  );
-  commandListener = Navigation.events().registerCommandListener(
-    (name, params) => {
-      if (name === 'dismissOverlay') {
-        targetScreen = '';
-      }
-
-      if (name.includes('dismissModal')) {
-        targetModal = undefined;
-      }
-
-      // Log('commandListener', name, params, name.includes('dismissModal'));
-    },
-  );
-};
-
-const deleteTraking = () => {
-  screenEventListenerDidAppear?.remove?.();
-  screenEventListenerDidDisappear?.remove?.();
-  screenEventListenerModalDismissed?.remove?.();
-  commandListener?.remove?.();
-};
-
-const dbOverlay = {};
-/**
  * Показывает компонент как наложение
  * @param {String} name имя/ид  компонента
  * @param {Object} options  параметры
  */
 const showOverlay = (name, options, passProps) => {
-  if (targetScreen !== name) {
-    targetScreen = name;
-    dbOverlay[name] = true;
-    Navigation.showOverlay({
-      component: {
-        id: name,
-        name,
-        options,
-        passProps,
-      },
-    });
-  }
+  Navigation.showOverlay({
+    component: {
+      id: name,
+      name,
+      options,
+      passProps,
+    },
+  });
 };
 
 /**
@@ -193,10 +118,7 @@ const showOverlay = (name, options, passProps) => {
  * @param {String} name имя/ид  компонента
  */
 const dismissOverlay = (name) => {
-  if (dbOverlay[name]) {
-    dbOverlay[name] = false;
-    Navigation.dismissOverlay(name);
-  }
+  Navigation.dismissOverlay(name);
 };
 
 const dbModal = {};
@@ -254,9 +176,6 @@ const getConstans = () => {
   return _constans;
 };
 
-const setListenerModalClose = (nameModal, callback) => {
-  dbModalListener[nameModal] = callback;
-};
 const events = (): EventsRegistry => Navigation.events();
 
 const setDefaultOptions = (options) => Navigation.setDefaultOptions(options);
@@ -269,8 +188,6 @@ export default {
   bindComponent,
   navigateTab,
   mergeOptions,
-  traking,
-  deleteTraking,
   showOverlay,
   dismissOverlay,
   storeDispatch,
@@ -279,7 +196,6 @@ export default {
   dismissModal,
   initConstans,
   getConstans,
-  setListenerModalClose,
   events,
   setDefaultOptions,
 };

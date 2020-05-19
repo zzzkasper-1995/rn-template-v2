@@ -4,9 +4,8 @@ import {Provider} from 'react-redux';
 import {initModules} from './routes';
 import {initRoutes} from './routes';
 import configureStore from './redux/store';
-import {Log, Theme, Navigation} from './library';
+import {Theme, Navigation} from './library/functional';
 import {ColorKit} from './theming';
-import {getStock} from './api/request';
 
 // Отменяем системный автоскейл текста устанвливаемый настройками телефона
 Text.defaultProps = Text.defaultProps || {};

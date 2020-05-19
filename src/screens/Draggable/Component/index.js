@@ -1,6 +1,6 @@
 import React from 'react';
 import {SafeAreaView, Text} from 'react-native';
-import {Log, ModuleWrapper} from '../../../library';
+import {Log, ModuleWrapper} from '../../../library/functional';
 import styles from './styles';
 import DraggableView from './DraggableView/index2';
 

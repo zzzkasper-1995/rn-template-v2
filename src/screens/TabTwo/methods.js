@@ -1,5 +1,5 @@
 import {setMenuItem} from '../../redux/modules/app/actions';
-import {Log} from '../../library';
+import {Log} from '../../library/functional';
 import {transition} from '../../routes/transitionMap';
 import {openDraggable} from '../../routes/action';
 

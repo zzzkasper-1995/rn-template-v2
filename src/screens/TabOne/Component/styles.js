@@ -1,6 +1,6 @@
-import {StyleSheet} from 'react-native';
-import {Theme} from '../../../library';
-import { SimpleProperties } from '../../../theming';
+
+import {Theme} from '../../../library/functional';
+import {SimpleProperties} from '../../../theming';
 
 export default Theme.create({
   safeArea: {

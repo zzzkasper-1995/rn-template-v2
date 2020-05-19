@@ -1,6 +1,6 @@
 import {setMenuItem} from '../../redux/modules/app/actions';
 import {getLastSession} from '../../api/request';
-import {Log} from '../../library';
+import {Log} from '../../library/functional';
 
 /**
  * @description методы для модуля TabOne
@@ -14,6 +14,7 @@ methods.onClose = (params) => async (dispatch, getState) => {
 
 methods.loadingLastSession = (params) => async (dispatch, getState) => {
   Log('methods.loadingLastSession', params);
+
   getLastSession();
 };
 

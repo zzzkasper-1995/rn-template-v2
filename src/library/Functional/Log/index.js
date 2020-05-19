@@ -1,7 +1,7 @@
 import Config from '../../../config';
 
 const Log = (...params) => {
-  if (Config.isLog) {
+  if (Config?.isLog) {
     console.log(...params);
   }
 };

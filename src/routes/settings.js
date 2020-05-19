@@ -1,4 +1,4 @@
-import {Theme} from '../library';
+import {Theme} from '../library/functional';
 
 export const settingsDefault = {
   //   layout: {

@@ -1,4 +1,4 @@
-import {Navigation} from '../library';
+import {Navigation} from '../library/functional';
 import {rootMainApp} from './roots';
 import {TAB_ONE, TAB_TWO, DRAGGABLE} from './screenName';
 

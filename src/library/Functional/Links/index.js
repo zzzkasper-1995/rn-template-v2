@@ -5,7 +5,7 @@ import Config from '../../../config';
 import I from '../I18n';
 
 /**
- * Обертка над линкс. Открывает ссылку
+ * Обертка над Linking. Открывает ссылку
  * @param {String} url  ссылка для открытия
  */
 const onLinking = (url) => {
