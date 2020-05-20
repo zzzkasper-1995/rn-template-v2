@@ -1,53 +1,71 @@
 import React from 'react';
 import {ActivityIndicator as UIActivityIndicator} from 'react-native';
 import {
-	BallIndicator,
-	BarIndicator,
-	DotIndicator,
-	MaterialIndicator,
-	PacmanIndicator,
-	PulseIndicator,
-	SkypeIndicator,
-	WaveIndicator,
+  BallIndicator,
+  BarIndicator,
+  DotIndicator,
+  MaterialIndicator,
+  PacmanIndicator,
+  PulseIndicator,
+  SkypeIndicator,
+  WaveIndicator,
 } from 'react-native-indicators';
 import HorizontalIndicator from './horizontal-indicator';
 
-class ActivityIndicator extends React.Component {
-	constructor(props) {
-		super(props);
-	}
+// For more details,
+// https://reactnative.dev/docs/activityindicator
+// https://github.com/n4kz/react-native-indicators
 
-	render() {
-		const {props} = this;
-		const {ball, dot, bar, material, pacman, pulse, skype, horizontal, ...other} = props;
+type Props = {
+  type?:
+    | 'ball'
+    | 'dot'
+    | 'bar'
+    | 'material'
+    | 'pacman'
+    | 'pulse'
+    | 'skype'
+    | 'horizontal',
+  size?: 'small' | 'large',
+  //   ...ActivityIndicatorProps
+};
 
-		if (ball) {
-			return <BallIndicator {...other} />;
-		}
-		if (dot) {
-			return <DotIndicator {...other} />;
-		}
-		if (bar) {
-			return <BarIndicator {...other} />;
-		}
-		if (material) {
-			return <MaterialIndicator {...other} />;
-		}
-		if (pacman) {
-			return <PacmanIndicator {...other} />;
-		}
-		if (pulse) {
-			return <PulseIndicator {...other} />;
-		}
-		if (skype) {
-			return <SkypeIndicator {...other} />;
-		}
-		if (horizontal) {
-			return <HorizontalIndicator {...other} />;
-		}
+/** Displays a circular loading indicator */
+const ActivityIndicator = (props: Props) => {
+  const {type, ...other} = this.props;
 
-		return <UIActivityIndicator {...other} />;
-	}
-}
+  switch (type) {
+    case 'ball': {
+      return <BallIndicator {...other} />;
+    }
+    case 'dot': {
+      return <DotIndicator {...other} />;
+    }
+    case 'bar': {
+      return <BarIndicator {...other} />;
+    }
+    case 'material': {
+      return <MaterialIndicator {...other} />;
+    }
+    case 'pacman': {
+      return <PacmanIndicator {...other} />;
+    }
+    case 'pulse': {
+      return <PulseIndicator {...other} />;
+    }
+    case 'skype': {
+      return <SkypeIndicator {...other} />;
+    }
+    case 'horizontal': {
+      return <HorizontalIndicator {...other} />;
+    }
+    case 'wave': {
+      return <WaveIndicator {...other} />;
+    }
+    default: {
+      return <UIActivityIndicator {...other} />;
+    }
+  }
+};
 
-export {ActivityIndicator};
+export default ActivityIndicator;
