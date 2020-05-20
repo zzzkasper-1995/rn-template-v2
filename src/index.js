@@ -7,7 +7,7 @@ import configureStore from './redux/store';
 import {Theme, Navigation} from './library/functional';
 import {ColorKit} from './theming';
 
-// Отменяем системный автоскейл текста устанвливаемый настройками телефона
+// Отменяем системный автоскейл текста установленный настройками телефона
 Text.defaultProps = Text.defaultProps || {};
 Text.defaultProps.allowFontScaling = false;
 TextInput.defaultProps = TextInput.defaultProps || {};
