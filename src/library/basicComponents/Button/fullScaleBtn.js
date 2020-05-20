@@ -4,8 +4,8 @@ import ContentFull from './contentFull';
 import {fullScaleBtnType} from './types';
 import {fullScaleBtnStyles as styles} from './styles';
 
-// Обычная кнопка, при нажатии отдаляется, когда пользователь отпускает , то кнопка возвращается на место
-class FullScale extends React.PureComponent<fullScaleBtnType> {
+/** Обычная кнопка, при нажатии отдаляется, когда пользователь отпускает , то кнопка возвращается на место */
+class FullScaleBtn extends React.PureComponent<fullScaleBtnType> {
   render() {
     const {
       onPress,
@@ -58,8 +58,8 @@ class FullScale extends React.PureComponent<fullScaleBtnType> {
   }
 }
 
-FullScale.defaultProps = {
+FullScaleBtn.defaultProps = {
   min: 0.95,
 };
 
-export default FullScale;
+export default FullScaleBtn;

@@ -4,8 +4,8 @@ import {scaleType} from './types';
 
 const DURATION = 200;
 
-// при нажатии отдаляется, когда пользователь отпускает , то кнопка возвращается на место
-class ScaleButton extends React.PureComponent<scaleType> {
+/** При нажатии отдаляется, когда пользователь отпускает , то кнопка возвращается на место */
+class ScaleBtn extends React.PureComponent<scaleType> {
   constructor(props) {
     super(props);
     this.scaleValue = new Animated.Value(1);
@@ -83,7 +83,7 @@ class ScaleButton extends React.PureComponent<scaleType> {
   }
 }
 
-ScaleButton.defaultProps = {
+ScaleBtn.defaultProps = {
   onPressIn: () => {},
   onPressOut: () => {},
   onPress: () => {},
@@ -91,4 +91,4 @@ ScaleButton.defaultProps = {
   max: 1,
 };
 
-export default ScaleButton;
+export default ScaleBtn;

@@ -9,7 +9,7 @@ import {fullGradientBtnType} from './types';
 // https://github.com/react-native-community/react-native-linear-gradient
 
 /** Обычная кнопка c градиентным фоном */
-const Full = (props: fullGradientBtnType) => {
+const FullGradientBtn = (props: fullGradientBtnType) => {
   const {
     colors = [],
     onPress,
@@ -49,4 +49,4 @@ const Full = (props: fullGradientBtnType) => {
   );
 };
 
-export default Full;
+export default FullGradientBtn;

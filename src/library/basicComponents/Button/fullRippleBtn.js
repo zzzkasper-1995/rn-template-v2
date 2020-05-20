@@ -7,7 +7,7 @@ import ContentFull from './contentFull';
 //https://software-mansion.github.io/react-native-gesture-handler/docs/component-buttons.html#rectbutton
 
 /** Обычная кнопка, при нажатии идет волна */
-const FullRipple = (props: fullRippleBtnType) => {
+const FullRippleBtn = (props: fullRippleBtnType) => {
   const {
     onPress,
     color,
@@ -47,4 +47,4 @@ const FullRipple = (props: fullRippleBtnType) => {
   );
 };
 
-export default FullRipple;
+export default FullRippleBtn;

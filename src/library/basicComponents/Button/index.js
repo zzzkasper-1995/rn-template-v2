@@ -1,14 +1,20 @@
 import React from 'react';
 import {TouchableOpacity, Keyboard} from 'react-native';
 import RectButton from 'react-native-gesture-handler';
-import Link from './link';
-import Full from './full';
-import FullG from './fullG';
-import ScaleButton from './scale';
-import FullScale from './fullScale';
-import FullAndroid from './fullAndroid';
+import LinkBtn from './linkBtn';
+import FullBtn from './fullBtn';
+import FullGradientBtn from './fullGradientBtn';
+import ScaleBtn from './scaleBtn';
+import FullScaleBtn from './fullScaleBtn';
+import FullRippleBtn from './fullRippleBtn';
 import {btnType} from './types';
 
+// works using
+// https://reactnative.dev/docs/touchableopacity#__docusaurus
+// https://software-mansion.github.io/react-native-gesture-handler/docs/component-buttons.html#rectbutton
+// https://github.com/react-native-community/react-native-linear-gradient
+
+/** Кнопка */
 class Button extends React.PureComponent<btnType> {
   constructor(props) {
     super(props);
@@ -30,11 +36,11 @@ class Button extends React.PureComponent<btnType> {
 
     switch (type) {
       case 'link': {
-        return <Link {...other} onPress={this.handleOnPress} />;
+        return <LinkBtn {...other} onPress={this.handleOnPress} />;
       }
       case 'scale': {
         return (
-          <ScaleButton
+          <ScaleBtn
             {...other}
             isSpring={isSpring}
             onPress={this.handleOnPress}
@@ -42,20 +48,20 @@ class Button extends React.PureComponent<btnType> {
         );
       }
       case 'full': {
-        return <Full {...other} onPress={this.handleOnPress} />;
+        return <FullBtn {...other} onPress={this.handleOnPress} />;
       }
       case 'fullG': {
-        return <FullG {...other} onPress={this.handleOnPress} />;
+        return <FullGradientBtn {...other} onPress={this.handleOnPress} />;
       }
       case 'ripple': {
         return <RectButton {...other} onPress={this.handleOnPress} />;
       }
       case 'fullRipple': {
-        return <FullAndroid {...other} onPress={this.handleOnPress} />;
+        return <FullRippleBtn {...other} onPress={this.handleOnPress} />;
       }
       case 'fullScale': {
         return (
-          <FullScale
+          <FullScaleBtn
             {...other}
             isSpring={isSpring}
             onPress={this.handleOnPress}

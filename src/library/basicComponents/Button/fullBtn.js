@@ -5,7 +5,7 @@ import {fullBtnType} from './types';
 import {fullBtnStyles as styles} from './styles';
 
 /** Обычная кнопка */
-const Full = (props: fullBtnType) => {
+const FullBtn = (props: fullBtnType) => {
   const {
     onPress,
     color,
@@ -45,4 +45,4 @@ const Full = (props: fullBtnType) => {
   );
 };
 
-export default Full;
+export default FullBtn;

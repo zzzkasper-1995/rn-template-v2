@@ -4,7 +4,7 @@ import {linkBtnStyles as styles} from './styles';
 import {linkType} from './types';
 
 /** Кнопка с офрмлением ссылки */
-const Link = (props: linkType) => {
+const LinkBtn = (props: linkType) => {
   const {onPress, text, style, textStyle, activeOpacity} = props;
 
   const styleSimple = [styles.container, style];
@@ -20,4 +20,4 @@ const Link = (props: linkType) => {
   );
 };
 
-export default Link;
+export default LinkBtn;
