@@ -1,1 +1,12 @@
-import ActivityIndicator from './ActivityIndicator';
+export {default as ActivityIndicator} from './ActivityIndicator';
+export {default as Button} from './Button';
+export {default as FlatList} from './FlatList';
+export {default as Image} from './Image';
+export {default as LinearGradient} from './LinearGradient';
+export {default as Modal} from './Modal';
+export {default as ScrollView} from './ScrollView';
+export {default as Switch} from './Switch';
+export {default as Text} from './Text';
+export {default as TextInput} from './TextInput';
+export {default as View} from './View';
+export {default as WebView} from './WebView';

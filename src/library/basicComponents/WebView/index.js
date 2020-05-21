@@ -1,40 +1,39 @@
 import React from 'react';
-import {} from 'react-native';
-import {WebView as Web} from 'react-native-webview';
-import {BindSimple} from '../../Component';
-import Styles from './styles';
+import {WebView as Web, WebViewProps} from 'react-native-webview';
 
 // See: https://github.com/react-native-community/react-native-webview
 
-/**
- *  Обетка над видженом
- *
- * @class WebView
- * @extends {React.PureComponent}
- */
-class WebView extends React.PureComponent {
-	constructor(props) {
-		super(props);
-		BindSimple(this, {styles: Styles});
-	}
+type Props = {
+  reference?: Function,
+};
 
-	render() {
-		const {styles, props} = this;
-		const {source, style, reference, ...other} = props;
+/** Обетка над WebView  */
+class WebView extends React.PureComponent<Props & WebViewProps> {
+  constructor(props) {
+    super(props);
+  }
 
-		return (
-			<Web
-				ref={ref => {
-					reference && reference(ref);
-					this.web = ref;
-				}}
-				source={source}
-				showsVerticalScrollIndicator={true}
-				style={style}
-				{...other}
-			/>
-		);
-	}
+  handleRef = (ref) => {
+    const {reference} = this.props;
+
+    reference?.(ref);
+    this.web = ref;
+  };
+
+  render() {
+    const {props} = this;
+    const {source, style, reference, ...other} = props;
+
+    return (
+      <Web
+        ref={this.handleRef}
+        source={source}
+        showsVerticalScrollIndicator={true}
+        style={style}
+        {...other}
+      />
+    );
+  }
 }
 
-export {WebView};
+export default WebView;

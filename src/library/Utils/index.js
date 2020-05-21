@@ -1,6 +1,7 @@
 import plural from 'plural-ru';
 import uuid from 'react-native-uuid';
 import moment from 'moment';
+import numeral from 'numeral';
 import 'moment/locale/ru';
 
 moment.locale('ru');
@@ -36,6 +37,23 @@ export function safeCall(id: String, fun: Function, time: Number = 2000): void {
     objectIdSafeFun[id] = new Date();
     fun();
   }
+}
+
+/**
+ * Форматирует число  расставляя символ между разрядами
+ * @param {String} str входное число
+ * @param {String} symbol символ разделителя
+
+ * @memberof module:Utils
+ */
+export function formatNumber(
+  str: String,
+  symbol: String = ' ',
+  isNumeral: Boolean = false,
+): String {
+  return isNumeral
+    ? numeral(`${str}`).format(symbol)
+    : `${str}`.replace(/\d{1,3}(?=(\d{3})+(?!\d))/g, `$&${symbol}`);
 }
 
 /** Создать уникальный id */

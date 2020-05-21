@@ -1,5 +1,8 @@
 import React from 'react';
-import {ActivityIndicator as UIActivityIndicator} from 'react-native';
+import {
+  ActivityIndicator as UIActivityIndicator,
+  ActivityIndicatorProps,
+} from 'react-native';
 import {
   BallIndicator,
   BarIndicator,
@@ -26,12 +29,12 @@ type Props = {
     | 'pulse'
     | 'skype'
     | 'horizontal',
-  size?: 'small' | 'large',
+  // size?: 'small' | 'large',
   //   ...ActivityIndicatorProps
 };
 
 /** Displays a circular loading indicator */
-const ActivityIndicator = (props: Props) => {
+const ActivityIndicator = (props: Props & ActivityIndicatorProps) => {
   const {type, ...other} = this.props;
 
   switch (type) {

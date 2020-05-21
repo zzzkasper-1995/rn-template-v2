@@ -1,133 +1,95 @@
-import React from 'react';
+import React, {useState} from 'react';
 import FastImage from 'react-native-fast-image';
-import {Image as RNImage} from 'react-native';
+import {Image as RNImage, ImageProps} from 'react-native';
 import {View} from '../View';
 import {Text} from '../Text';
+import styles from './styles';
 
-import Styles from './styles';
-import {BindSimple} from '../../Component';
-import {Log} from '../../Log';
+// For more details,
+// https://github.com/DylanVann/react-native-fast-image
+// https://reactnative.dev/docs/image
 
-/**
- * @module ImageView
- * @description Блок с картинкой
- */
-/**
- * @param {String} name имя картинки, если отображаеться из списка имеющихся
- * @param {Object} style стиль иконки (в том числе высота и ширина)
- * @param {Object} uri uri до картинки, на пример 'www.google.com/yeuiyriy'
- * @param {String} resizeMode тип автоподгонки картинки
- * @param {Boolean} isFast использовать более оптимизированный компонент для вывода картинок (FastImage) или обычный Image
- * @param {Boolean} isReq используем сетевой запрос дл получения картинки
- * @param {Object} headers  шапка запроса
- * @param {String} priority  поретет запроса (normal,low,high)
- * @param {String} cache (immutable,web,cacheOnly)
- * @param {Object|Number} source ресурс картинки
- * @param {String} color цвет заливки
- */
+type Props = {
+  isFast?: Boolean, // будем использовать FastImage
+  isFade?: Boolean, // картинка будет появляться c эфектом fade
+  isDummy?: Boolean, // вместо картинки будет показана заглушка
+  text?: String, // текст который надо показать если нет картинки
+  source?: Object | Number,
+  color?: String, // цвет картинки
+  style?: Object | Array, // стиль
+  dummyStyle?: Object | Array, // стиль заглушки
+  textStyle?: Object | Array, // стиль текста
+};
 
-class ImageView extends React.PureComponent {
-	constructor(props) {
-		super(props);
-		this.state = {
-			isLoad: false,
-		};
-		BindSimple(this, {styles: Styles});
-	}
+/** Блок с картинкой */
+const ImageView = (props: ImageProps & Props) => {
+  const [isLoad, setIsLoad] = useState(false);
 
-	onLoadEnd = e => {
-		if (this.props.onLoadEnd) {
-			this.props.onLoadEnd(e);
-		}
-		this.setState({isLoad: true});
-	};
+  const onLoadEnd = (e) => {
+    if (props?.onLoadEnd) {
+      props.onLoadEnd(e);
+    }
+    setIsLoad(true);
+  };
 
-	render() {
-		const {styles, props} = this;
-		const {
-			style = {},
-			name,
-			uri,
-			resizeMode,
-			isFast,
-			headers,
-			priority,
-			cache,
-			text,
-			isActive,
-			isFade,
-			fadeConfig,
-			fadeDuration,
-			source,
-			color,
-			isDummy,
-			...other
-		} = props;
+  const {
+    style,
+    dummyStyle,
+    textStyle,
+    isFast,
+    isFade,
+    isDummy,
+    text,
+    source,
+    color,
+    ...other
+  } = props;
 
-		const styleImg = [styles.image, {tintColor: color}, style];
-		const sourceImg = source || uri;
+  const styleImg = [styles.image, {tintColor: color}, style];
 
-		if (isDummy) {
-			return <View style={[styleImg, styles.dummy]} />;
-		}
-		if (isFast) {
-			if (isFade) {
-				return (
-					<View late isShow={this.state.isLoad}>
-						<FastImage
-							style={styleImg}
-							source={sourceImg}
-							resizeMode={FastImage.resizeMode[resizeMode]}
-							onLoadEnd={this.onLoadEnd}
-							{...other}
-						/>
-					</View>
-				);
-			}
-			if (sourceImg) {
-				return text ? (
-					<View style={[styleImg, styles.reserveView]}>
-						{text && text.length >= 1 ? (
-							<Text style={styles.text}>{text.toUpperCase()}</Text>
-						) : null}
+  if (isDummy) {
+    return <View style={[styleImg, styles.dummy, dummyStyle]} />;
+  }
+  if (!source || (typeof source === 'object' && !source?.uri)) {
+    if (text) {
+      return (
+        <View style={[styles.reserveView, styleImg]}>
+          <Text style={[styles.text, textStyle]}>{text}</Text>
+        </View>
+      );
+    }
+  }
+  if (isFast) {
+    if (isFade) {
+      return (
+        <View late isShow={isLoad}>
+          <FastImage
+            source={source}
+            onLoadEnd={onLoadEnd}
+            style={styleImg}
+            {...other}
+          />
+        </View>
+      );
+    }
 
-						<FastImage
-							style={[styleImg, {position: 'absolute', top: 0, left: 0}]}
-							source={sourceImg}
-							resizeMode={FastImage.resizeMode[resizeMode]}
-							fadeDuration={fadeDuration}
-							onLoadEnd={this.onLoadEnd}
-							{...other}
-						/>
-					</View>
-				) : (
-					<FastImage
-						style={styleImg}
-						tintColor={color}
-						source={sourceImg}
-						resizeMode={FastImage.resizeMode[resizeMode]}
-						{...other}
-					/>
-				);
-			}
-			return (
-				<View style={[styles.reserveView, styleImg]}>
-					{text && text.length >= 1 ? (
-						<Text style={styles.text}>{text && text.toUpperCase()}</Text>
-					) : null}
-				</View>
-			);
-		}
+    return (
+      <FastImage
+        tintColor={color}
+        source={source}
+        style={styleImg}
+        {...other}
+      />
+    );
+  }
 
-		return (
-			<RNImage
-				style={styleImg}
-				source={sourceImg}
-				resizeMode={resizeMode}
-				fadeDuration={fadeDuration}
-			/>
-		);
-	}
-}
+  return (
+    <RNImage
+      source={source}
+      fadeDuration={isFade ? 300 : undefined}
+      style={styleImg}
+    />
+  );
+};
 
-export {ImageView as Image};
+export default ImageView;
