@@ -39,9 +39,6 @@ export default Theme.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: simple.indent.normal,
-    height: simple.itemHeight.normal,
-    backgroundColor: '$row',
   },
   icon: {
     width: 16,

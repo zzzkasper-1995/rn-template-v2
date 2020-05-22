@@ -14,7 +14,7 @@ export default Theme.create({
   },
   primaryText: {
     fontSize: 16,
-    fontWeight: simple.fontWeight.bold,
+    fontWeight: simple.fontWeight.semibold,
     color: '$primaryText',
   },
 });

@@ -22,7 +22,7 @@ type Props = {
 };
 
 /** Блок с картинкой */
-const ImageView = (props: ImageProps & Props) => {
+const Image = (props: ImageProps & Props) => {
   const [isLoad, setIsLoad] = useState(false);
 
   const onLoadEnd = (e) => {
@@ -92,4 +92,4 @@ const ImageView = (props: ImageProps & Props) => {
   );
 };
 
-export default ImageView;
+export default Image;
