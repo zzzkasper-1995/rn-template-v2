@@ -1,5 +1,5 @@
 import React from 'react';
-import ScaleButton from './scale';
+import ScaleButton from './scaleBtn';
 import ContentFull from './contentFull';
 import {fullScaleBtnType} from './types';
 import {fullScaleBtnStyles as styles} from './styles';

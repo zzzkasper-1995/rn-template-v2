@@ -13,6 +13,10 @@ export default Theme.create({
     right: 0,
     bottom: 0,
   },
+  canter: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   shadow: {
     shadowColor: '#000',
     shadowOffset: {
@@ -30,6 +34,14 @@ export default Theme.create({
     paddingHorizontal: simple.indent.normal,
     height: simple.itemHeight.normal,
     backgroundColor: '$item',
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: simple.indent.normal,
+    height: simple.itemHeight.normal,
+    backgroundColor: '$row',
   },
   icon: {
     width: 16,

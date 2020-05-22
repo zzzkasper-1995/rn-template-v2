@@ -7,7 +7,7 @@ import styles from './styles';
 class TabOne extends React.Component {
   constructor(props) {
     super(props);
-    props.loadingLastSession();
+    props.loadTopCoin();
   }
 
   changeTheme = () => {

@@ -2,7 +2,6 @@ import React from 'react';
 import {ScrollView, RefreshControl, ScrollViewProps} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import styles from './styles';
-import {Log} from '../../Log';
 
 // For more details,
 // https://github.com/APSL/react-native-keyboard-aware-scroll-view
@@ -34,7 +33,7 @@ class WrapperScrollView extends React.PureComponent<Props & ScrollViewProps> {
         onUploadNext();
       }
     } catch (err) {
-      Log('handleOnUploadNext err:', err);
+      console.log('handleOnUploadNext err:', err);
     }
   };
 

@@ -1,37 +1,49 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, Text, View} from 'react-native';
 import {Log, Theme, ModuleWrapper} from '../../../library/functional';
+import {
+  Switch,
+  Button,
+  ScrollView,
+  Text,
+  View,
+} from '../../../library/basicComponents';
 import styles from './styles';
 import {TextStyles, ViewStyles} from '../../../theming';
+// import {View} from 'react-native';
 
 class TabTwo extends React.Component {
-  changeTheme = () => {
-    Theme.setTheme('Default');
-    this.forceUpdate();
+  constructor(props) {
+    super(props);
+    this.state = {
+      themeName: Theme.getName(),
+    };
+  }
+
+  changeTheme = (isLight) => {
+    const name = isLight ? 'Default' : 'Dark';
+
+    Theme.setTheme(name);
+    this.setState({themeName: name});
   };
 
   render() {
     Log('render Tabtwo');
+    const {themeName} = this.state;
 
     return (
-      <SafeAreaView style={styles.safeArea}>
+      <View type="safeArea" style={styles.safeArea}>
         <ScrollView
           style={styles.mainContainer}
           contentContainerStyle={styles.content}>
-          <View style={[ViewStyles.item, ViewStyles.shadow, styles.item]}>
-            <Text onPress={this.changeTheme} style={TextStyles.normal}>
-              Theme Light
-            </Text>
-          </View>
-          <View style={[ViewStyles.item, ViewStyles.shadow, styles.item]}>
-            <Text
-              onPress={this.props.onOpenDraggable}
-              style={TextStyles.normal}>
-              Open draggable
-            </Text>
+          <View style={[ViewStyles.row]}>
+            <Text style={TextStyles.normal}>Light theme</Text>
+            <Switch
+              value={themeName === 'Default'}
+              onValueChange={this.changeTheme}
+            />
           </View>
         </ScrollView>
-      </SafeAreaView>
+      </View>
     );
   }
 }

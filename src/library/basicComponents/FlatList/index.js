@@ -1,6 +1,5 @@
 import React from 'react';
 import {FlatList, RefreshControl, FlatListProps} from 'react-native';
-import {Log} from '../../Log';
 
 // For more details,
 // https://reactnative.dev/docs/flatlist#__docusaurus
@@ -36,7 +35,7 @@ class WrapperFlatList extends React.Component<FlatListProps & Props> {
         onUploadNext();
       }
     } catch (err) {
-      Log('handleOnUploadNext err:', err);
+      console.log('handleOnUploadNext err:', err);
     }
   };
 

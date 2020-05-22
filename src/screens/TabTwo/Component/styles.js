@@ -1,18 +1,18 @@
-
 import {Theme} from '../../../library/functional';
 import {SimpleProperties} from '../../../theming';
 
 export default Theme.create({
   safeArea: {
-    flex: 2,
+    flex: 1,
+    backgroundColor: 'red',
   },
   mainContainer: {
     flex: 1,
     backgroundColor: '$background',
-    paddingTop: 40,
   },
   content: {
-    alignItems: 'center',
+    // alignItems: 'center',
+    // backgroundColor: 'red',
   },
   text: {
     fontSize: 20,

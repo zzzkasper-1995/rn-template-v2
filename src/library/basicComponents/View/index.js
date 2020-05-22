@@ -38,22 +38,7 @@ type Props = {
 
 /** View */
 const View = (props: Props & ViewProps) => {
-  const {
-    type,
-    pressDismissKeyboard,
-    safeArea,
-    wave,
-    late,
-    style,
-    topBar,
-    topBarMargin,
-    statusBar,
-    topBarIos,
-    navBar,
-    isKeyboardAdjusting,
-    collaps,
-    ...other
-  } = props;
+  const {type, ...other} = props;
 
   switch (type) {
     case 'pressDismissKeyboard': {

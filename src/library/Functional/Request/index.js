@@ -1,10 +1,12 @@
-import config from '../../../config';
+import Log from '../Log';
 
 /** Отправляем запросы */
-export default async function request(path, params = {}): Promise {
+export default async function request(path, params = {}, method): Promise {
   try {
-    const response = await fetch(config?.api?.endPoint + path, params);
+    const response = await fetch(path + '?$' + objToQueryString(params));
 
+    Log('request path, params', path, params);
+    Log('response', response);
     if (response.ok) {
       const res = await response.json();
       return res;
@@ -14,4 +16,14 @@ export default async function request(path, params = {}): Promise {
   } catch (err) {
     return {error: true, info: err};
   }
+}
+
+function objToQueryString(obj) {
+  const keyValuePairs = [];
+  for (const key in obj) {
+    keyValuePairs.push(
+      encodeURIComponent(key) + '=' + encodeURIComponent(obj[key]),
+    );
+  }
+  return keyValuePairs.join('&');
 }

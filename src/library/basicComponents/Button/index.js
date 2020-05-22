@@ -1,6 +1,6 @@
 import React from 'react';
 import {TouchableOpacity, Keyboard} from 'react-native';
-import RectButton from 'react-native-gesture-handler';
+import {RectButton} from 'react-native-gesture-handler';
 import LinkBtn from './linkBtn';
 import FullBtn from './fullBtn';
 import FullGradientBtn from './fullGradientBtn';
