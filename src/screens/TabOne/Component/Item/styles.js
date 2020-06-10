@@ -2,8 +2,9 @@ import {Theme} from '../../../../library/functional';
 import {SimpleProperties} from '../../../../theming';
 
 export default Theme.create({
-  safeArea: {
-    flex: 1,
+  main: {
+    borderBottomWidth: 1,
+    borderColor: '#bcc6cf',
   },
   mainContainer: {
     flex: 1,
@@ -18,5 +19,12 @@ export default Theme.create({
   },
   item: {
     marginBottom: SimpleProperties.indent.normal,
+  },
+  img: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: '#f1f2f7',
+    marginRight: 8,
   },
 });

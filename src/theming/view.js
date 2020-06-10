@@ -40,6 +40,12 @@ export default Theme.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
+  mainRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: simple.indent.normal,
+    height: simple.itemHeight.normal,
+  },
   icon: {
     width: 16,
     height: 16,

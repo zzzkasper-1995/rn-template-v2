@@ -6,7 +6,7 @@ import {Theme} from '..';
 /**
  * Обертка над компонентами
  * Обрабатываем инициаторов перехода назад
- * Помогает обновлять тему компонента на лету
+ * Помогает обновлять тему компонента "на лету"
  * @export
  * @param {*} Component
  * @param {*} {isBack}
@@ -14,6 +14,7 @@ import {Theme} from '..';
  */
 export default function ModuleWrapper(Component, params = {}) {
   const {isBack = true} = params;
+
   return class extends React.Component {
     constructor(props) {
       super(props);
@@ -26,11 +27,13 @@ export default function ModuleWrapper(Component, params = {}) {
     }
 
     componentDidMount() {
+      console.log('componentDidMount ModuleWrapper');
       BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
     }
 
     // Логика при размонтровании
     componentWillUnmount() {
+      console.log('componentWillUnmount ModuleWrapper');
       BackHandler.removeEventListener(
         'hardwareBackPress',
         this.handleBackPress,
@@ -39,11 +42,13 @@ export default function ModuleWrapper(Component, params = {}) {
 
     // Логика при установки экрана в фокус
     componentDidAppear() {
+      console.log('componentDidAppear ModuleWrapper');
       this.component.componentDidAppear?.();
     }
 
     // Логика при снятии фокуса с экрана
     componentDidDisappear() {
+      console.log('componentDidDisappear ModuleWrapper');
       this.component.componentDidDisappear?.();
     }
 

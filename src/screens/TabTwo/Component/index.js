@@ -35,7 +35,7 @@ class TabTwo extends React.Component {
         <ScrollView
           style={styles.mainContainer}
           contentContainerStyle={styles.content}>
-          <View style={[ViewStyles.row]}>
+          <View style={[ViewStyles.row, ViewStyles.mainRow]}>
             <Text style={TextStyles.normal}>Light theme</Text>
             <Switch
               value={themeName === 'Default'}

@@ -1,18 +1,18 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, Text, View} from 'react-native';
-import {Theme, Log, ModuleWrapper} from '../../../library/functional';
-import {FlatList} from '../../../library/basicComponents';
-import {ViewStyles, TextStyles} from '../../../theming';
+import {Log, ModuleWrapper} from '../../../library/functional';
+import {FlatList, View} from '../../../library/basicComponents';
 import styles from './styles';
 import Item from './Item';
 
 class TabOne extends React.Component {
   constructor(props) {
     super(props);
+
+    props.loadTopCoin();
   }
 
   componentDidAppear() {
-    this.props.loadTopCoin();
+    Log('componentDidAppear');
   }
 
   changeTheme = () => {
@@ -27,14 +27,9 @@ class TabOne extends React.Component {
     const {coins} = this.props;
 
     return (
-      <SafeAreaView style={styles.mainContainer}>
+      <View type="safeArea" style={styles.mainContainer}>
         <FlatList data={coins} renderItem={Item} />
-        <View style={[ViewStyles.item, ViewStyles.shadow, styles.item]}>
-          <Text onPress={this.changeTheme} style={TextStyles.normal}>
-            Theme Dark
-          </Text>
-        </View>
-      </SafeAreaView>
+      </View>
     );
   }
 }

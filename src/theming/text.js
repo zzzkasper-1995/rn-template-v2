@@ -12,9 +12,13 @@ export default Theme.create({
     opacity: 0.5,
     color: '$primaryText',
   },
-  primaryText: {
+  primary: {
     fontSize: 16,
     fontWeight: simple.fontWeight.semibold,
+    color: '$primaryText',
+  },
+  big: {
+    fontSize: 20,
     color: '$primaryText',
   },
 });
