@@ -1,6 +1,7 @@
 import {Theme} from '../library/functional';
 import simple from './simple';
 
+/** Базовые стили для View */
 export default Theme.create({
   screen: {
     flex: 1,

@@ -1,3 +1,4 @@
+/** Стандартная тема */
 export default {
   background: '#ffffff',
   primary: '#6200EE',

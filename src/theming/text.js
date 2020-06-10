@@ -1,6 +1,7 @@
 import simple from './simple';
 import {Theme} from '../library/functional';
 
+/** Базовые стили для Text */
 export default Theme.create({
   normal: {
     fontSize: 16,

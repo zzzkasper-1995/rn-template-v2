@@ -1,6 +1,7 @@
 import {Dimensions, Platform} from 'react-native';
 const {width, height} = Dimensions.get('window');
 
+/** Значения для свойств стилей */
 export default {
   fontWeight: {
     regular: '400',

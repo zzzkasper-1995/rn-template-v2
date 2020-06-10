@@ -1,3 +1,4 @@
+/** Темная тема */
 export default {
   background: '#131313',
   primary: '#1f1f1f',
