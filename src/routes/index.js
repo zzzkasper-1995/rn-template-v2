@@ -1,11 +1,19 @@
 import {Navigation, Log} from '../library/functional';
 import {rootMainApp} from './roots';
-import {TAB_ONE, TAB_TWO, DRAGGABLE, DETAILS, STACK_ONE} from './screenName';
+import {
+  TAB_ONE,
+  TAB_TWO,
+  DRAGGABLE,
+  DETAILS,
+  STACK_ONE,
+  HEADER,
+} from './screenName';
 
 import TabTwo from '../screens/TabTwo';
 import TabOne from '../screens/TabOne';
 import Draggable from '../screens/Draggable';
 import Details from '../screens/Details';
+import Header from '../screens/Header';
 import {settingsDefault} from './settings';
 import {openDraggable, openDetails} from './action';
 
@@ -38,6 +46,7 @@ export function initModules() {
   Navigation.registerComponent(TAB_TWO, TabTwo);
   Navigation.registerComponent(DRAGGABLE, Draggable);
   Navigation.registerComponent(DETAILS, Details);
+  Navigation.registerComponent(HEADER, Header);
 }
 
 /** Карта переходов по экранам */
