@@ -1,20 +1,16 @@
 import {setMenuItem} from '../../redux/modules/app/actions';
 import {Log} from '../../library/functional';
-import {transition} from '../../routes';
-import {openDraggable} from '../../routes/action';
+import {getTopCapful} from '../../api/rest/cryptocompare';
+import {addCoins} from '../../redux/modules/coins/actions';
 
 /**
- * @description методы для модуля TabTwo
+ * @description методы для модуля
  * @private
  */
 const methods = {};
 
 methods.onClose = (params) => async (dispatch, getState) => {
   dispatch(setMenuItem('name'));
-};
-
-methods.onOpenDraggable = (params) => async (dispatch, getState) => {
-  transition(openDraggable);
 };
 
 export default methods;

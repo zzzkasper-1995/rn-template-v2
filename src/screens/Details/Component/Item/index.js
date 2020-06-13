@@ -2,16 +2,14 @@ import React from 'react';
 import {Text, View} from 'react-native';
 import {ViewStyles, TextStyles} from '../../../../theming';
 import styles from './styles';
-import {Image, Button} from '../../../../library/basicComponents';
+import {Image} from '../../../../library/basicComponents';
 
 const Item = (props) => {
   // Log('render TabOne/Item', props);
-  const {item, onOpenDetails} = props;
+  const {item} = props;
 
   return (
-    <Button
-      onPress={() => onOpenDetails()}
-      style={[ViewStyles.row, ViewStyles.mainRow, styles.main]}>
+    <View style={[ViewStyles.row, ViewStyles.mainRow, styles.main]}>
       <View style={ViewStyles.row}>
         <Image
           isFast
@@ -22,7 +20,7 @@ const Item = (props) => {
         <Text style={TextStyles.primary}>{item.fullName}</Text>
       </View>
       <Text style={TextStyles.big}>{item.price}</Text>
-    </Button>
+    </View>
   );
 };
 

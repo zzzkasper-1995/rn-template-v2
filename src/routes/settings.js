@@ -1,5 +1,6 @@
 import {Theme} from '../library/functional';
 
+/** Настройки по умолчанию для Wix тнавигации */
 export const settingsDefault = {
   //   layout: {
   //     direction: 'ltr', // Supported directions are: 'rtl', 'ltr'

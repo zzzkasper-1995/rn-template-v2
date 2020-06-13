@@ -1,17 +1,18 @@
 import {I} from '../library/functional';
-import {TAB_ONE, TAB_TWO} from './screenName';
+import {TAB_ONE, TAB_TWO, TAB_MAIN, STACK_ONE, STACK_TWO} from './screenName';
 import assets from '../assets';
 
+/** Базовые деревья навигации */
 export const rootMainApp = {
   root: {
     bottomTabs: {
-      id: 'mainTab',
+      id: TAB_MAIN,
       // options: {
       // },
       children: [
         {
           stack: {
-            id: 'projectStack',
+            id: STACK_ONE,
             options: {
               bottomTab: {
                 icon: assets.CHAT,
@@ -30,7 +31,7 @@ export const rootMainApp = {
         },
         {
           stack: {
-            id: 'infoStack',
+            id: STACK_TWO,
             options: {
               bottomTab: {
                 icon: assets.PROFILE,

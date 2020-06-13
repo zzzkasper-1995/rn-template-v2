@@ -16,7 +16,7 @@ const pop = (currentID, options = {}) => {
 
 /**
  * Переход вперед по стек навигации
- * @param {String} currentID имя компонента с которого делается переход
+ * @param {String} currentID имя компонента компонента с которого делаем переход
  * @param {String} nameScreen имя компонента на который делается переход
  * @param {Object} options настройки перехода см(док wix/react-native-navigation)
  * @param {Object} passProps пропса для передачи между экранами через натив
