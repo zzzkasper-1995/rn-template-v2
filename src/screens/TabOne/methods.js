@@ -21,13 +21,15 @@ methods.onLoadTopCoin = (params) => async (dispatch, getState) => {
 
   const res = await getTopCapful();
 
-  const coinSet = res.Data.reduce((prev, el) => {
-    const key = el.CoinInfo.Name;
-    prev[key] = el;
-    return prev;
-  }, {});
+  if (!res.error) {
+    const coinSet = res.Data.reduce((prev, el) => {
+      const key = el.CoinInfo.Name;
+      prev[key] = el;
+      return prev;
+    }, {});
 
-  dispatch(addCoins(coinSet));
+    dispatch(addCoins(coinSet));
+  }
 };
 
 methods.onOpenDetails = (params) => async (dispatch, getState) => {
