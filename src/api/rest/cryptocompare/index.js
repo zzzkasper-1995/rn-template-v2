@@ -1,4 +1,4 @@
-import {Request} from '../../../library/functional';
+import {Request, Log} from '../../../library/functional';
 import config from '../../../config';
 
 const endPoint = config?.api?.endPoint?.cryptocompare;
@@ -14,9 +14,11 @@ export async function getTopCapful(
 ): Promise<Array> {
   const {limit = 10, page = 0, tsym = 'USD'} = params;
 
-  return Request(endPoint + '/data/top/mktcapfull', {
+  const res = Request(endPoint + '/data/top/mktcapfull', {
     limit,
     page,
     tsym,
   });
+
+  return res;
 }

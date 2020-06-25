@@ -16,6 +16,10 @@ const persistConfig = {
   storage: AsyncStorage,
 };
 
+let store = {
+  dispatch: () => console.log('STORE NOT CREATE'),
+};
+
 export default function configureStore() {
   let enhacers;
 
@@ -25,7 +29,7 @@ export default function configureStore() {
     enhacers = applyMiddleware(thunk);
   }
 
-  const store = createStore(
+  store = createStore(
     persistReducer(persistConfig, rootReducer),
     undefined,
     enhacers,
@@ -33,3 +37,5 @@ export default function configureStore() {
   const persistor = persistStore(store);
   return {store, persistor};
 }
+
+export {store};
