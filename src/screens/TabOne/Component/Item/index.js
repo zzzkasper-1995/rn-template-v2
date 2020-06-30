@@ -21,11 +21,11 @@ const Item = (props) => {
             resizeMode="contain"
             style={styles.img}
           />
-          <View>
+          <View style={{flex: 1, maxWidth: 160}}>
             <Text
               numberOfLines={1}
               ellipsizeMode="tail"
-              style={[TextStyles.primary, {maxWidth: 160}]}>
+              style={[TextStyles.primary]}>
               {item.fullName}
             </Text>
             <Text style={TextStyles.primary}>{item.name}</Text>
