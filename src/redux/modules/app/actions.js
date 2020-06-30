@@ -1,12 +1,12 @@
-export const SET_MENU_ITEM = 'app/SET_MENU_ITEM';
+export const SET_OPEN_COIN = 'app/SET_OPEN_COIN';
 
 /**
- * метод изменяет текущий выбранный пункт меню навигации
- * @param {string} name - наименование пункта меню
+ * метод изменяет информацию о том какая монета сейчас открыта
+ * @param {string} tiket - код монеты
  */
-export function setMenuItem(name: string) {
+export function setOpenCoin(tiket: string) {
   return {
-    type: SET_MENU_ITEM,
-    payload: {name},
+    type: SET_OPEN_COIN,
+    payload: {tiket},
   };
 }

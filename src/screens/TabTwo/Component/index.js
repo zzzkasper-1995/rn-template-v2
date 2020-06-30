@@ -29,7 +29,7 @@ class TabTwo extends React.Component {
   render() {
     Log('render Tabtwo');
     const {themeName} = this.state;
-    const {onOpenDraggable} = this.props;
+    // const {} = this.props;
 
     return (
       <View type="safeArea" style={styles.safeArea}>
@@ -43,10 +43,6 @@ class TabTwo extends React.Component {
               onValueChange={this.changeTheme}
             />
           </View>
-
-          <Button onPress={onOpenDraggable}>
-            <Text>onOpenDraggable</Text>
-          </Button>
         </ScrollView>
       </View>
     );

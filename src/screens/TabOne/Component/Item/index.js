@@ -8,11 +8,11 @@ const Item = (props) => {
   // Log('render TabOne/Item', props);
   const {item, isLast, onOpenDetails} = props;
 
+  const hendlePress = () =>
+    onOpenDetails({tiket: item.key, fullName: item.fullName});
+
   return (
-    <Button
-      type="darkPress"
-      onPress={() => onOpenDetails()}
-      style={ViewStyles.row}>
+    <Button type="darkPress" onPress={hendlePress} style={ViewStyles.row}>
       <View style={[styles.content, isLast && {borderBottomWidth: 0}]}>
         <View style={[ViewStyles.row, styles.textView]}>
           <Image
