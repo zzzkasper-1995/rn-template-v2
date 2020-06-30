@@ -1,4 +1,4 @@
-import {Navigation, Log} from '../library/functional';
+import {Navigation, Log, SplashScreen} from '../library/functional';
 import {rootMainApp} from './roots';
 import {
   TAB_ONE,
@@ -47,6 +47,8 @@ export function initModules() {
   Navigation.registerComponent(DRAGGABLE, Draggable);
   Navigation.registerComponent(DETAILS, Details);
   Navigation.registerComponent(HEADER, Header);
+
+  SplashScreen.hide();
 }
 
 /** Карта переходов по экранам */

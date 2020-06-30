@@ -18,6 +18,8 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* portfolioTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* portfolioTests.m */; };
 		53025330D47A5D8417594B4B /* libPods-portfolio-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D0B1300511622BCF5BA8AFA /* libPods-portfolio-tvOS.a */; };
+		C5EABAF224ABACBF00AA7CE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5EABAF124ABACBF00AA7CE9 /* LaunchScreen.storyboard */; };
+		C5EABAFD24ABB1E500AA7CE9 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = C5EABAFC24ABB1E500AA7CE9 /* splash.png */; };
 		DDD6B840A0E0DAAB799D60C7 /* libPods-portfolio-portfolioTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C01F3874849882E1755837BE /* libPods-portfolio-portfolioTests.a */; };
 		E45003E1A7AC9AF69C3D63C3 /* libPods-portfolio-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6094D35C7083E3200F9F601D /* libPods-portfolio-tvOSTests.a */; };
 /* End PBXBuildFile section */
@@ -61,6 +63,8 @@
 		C01F3874849882E1755837BE /* libPods-portfolio-portfolioTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-portfolio-portfolioTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B48A9394F332E6668E57A0 /* Pods-portfolio-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-portfolio-tvOS.release.xcconfig"; path = "Target Support Files/Pods-portfolio-tvOS/Pods-portfolio-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		C15287ECF242A51E13C7A78B /* Pods-portfolio-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-portfolio-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-portfolio-tvOSTests/Pods-portfolio-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C5EABAF124ABACBF00AA7CE9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C5EABAFC24ABB1E500AA7CE9 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash.png; path = ../../../../../Downloads/splash.png; sourceTree = "<group>"; };
 		CB0BB03CAACCFB8369F7042C /* Pods-portfolio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-portfolio.debug.xcconfig"; path = "Target Support Files/Pods-portfolio/Pods-portfolio.debug.xcconfig"; sourceTree = "<group>"; };
 		E313FD0DB767D877F61EDEE5 /* Pods-portfolio-portfolioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-portfolio-portfolioTests.debug.xcconfig"; path = "Target Support Files/Pods-portfolio-portfolioTests/Pods-portfolio-portfolioTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -174,6 +178,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				C5EABAF324ABAE2600AA7CE9 /* SlashScreen */,
 				13B07FAE1A68108700A75B9A /* portfolio */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* portfolioTests */,
@@ -195,6 +200,15 @@
 				2D02E4901E0B4A5D006451C7 /* portfolio-tvOSTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C5EABAF324ABAE2600AA7CE9 /* SlashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				C5EABAF124ABACBF00AA7CE9 /* LaunchScreen.storyboard */,
+				C5EABAFC24ABB1E500AA7CE9 /* splash.png */,
+			);
+			path = SlashScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,8 +353,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5EABAF224ABACBF00AA7CE9 /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				C5EABAFD24ABB1E500AA7CE9 /* splash.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, TouchableHighlight} from 'react-native';
+import {Text, View} from 'react-native';
 import {ViewStyles, TextStyles} from '../../../../theming';
 import styles from './styles';
 import {Image, Button} from '../../../../library/basicComponents';
