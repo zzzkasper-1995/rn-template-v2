@@ -23,6 +23,7 @@ export default {
     mini: 8,
   },
   itemHeight: {
+    big: 64,
     normal: 48,
     little: 40,
   },

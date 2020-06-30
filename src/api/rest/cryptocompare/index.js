@@ -11,14 +11,19 @@ type getTopCapfulArg = {
 // получить топ валют по капитализации
 export async function getTopCapful(
   params: getTopCapfulArg = {},
+  loadAction: String,
 ): Promise<Array> {
   const {limit = 10, page = 0, tsym = 'USD'} = params;
 
-  const res = Request(endPoint + '/data/top/mktcapfull', {
-    limit,
-    page,
-    tsym,
-  });
+  const res = Request(
+    endPoint + '/data/top/mktcapfull',
+    {
+      limit,
+      page,
+      tsym,
+    },
+    loadAction,
+  );
 
   return res;
 }

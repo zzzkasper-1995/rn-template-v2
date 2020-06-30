@@ -1,4 +1,4 @@
-import Log from '../Log';
+// import Log from '../Log';
 
 /** Управляем цвето-темой */
 class Scheet {
@@ -8,7 +8,7 @@ class Scheet {
   }
 
   calc = (colors): Object => {
-    Log('!Scheet calc', colors, {...this._base});
+    // Log('!Scheet calc', colors, {...this._base});
     // пробегаемсмя по стилям и ищем в них свойства связаные с color
     Object.keys(this._base).forEach((key) => {
       const item = this._base[key];

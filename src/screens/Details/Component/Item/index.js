@@ -5,7 +5,7 @@ import styles from './styles';
 import {Image} from '../../../../library/basicComponents';
 
 const Item = (props) => {
-  // Log('render TabOne/Item', props);
+  console.log('!!render TabOne/Item', props);
   const {item} = props;
 
   return (
@@ -19,7 +19,9 @@ const Item = (props) => {
         />
         <Text style={TextStyles.primary}>{item.fullName}</Text>
       </View>
-      <Text style={TextStyles.big}>{item.price}</Text>
+      <Text style={TextStyles.big}>
+        {item.price} {item.symbol}
+      </Text>
     </View>
   );
 };

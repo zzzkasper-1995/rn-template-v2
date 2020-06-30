@@ -7,17 +7,20 @@ export const slGetCoins = createSelector(
   (set, link) => {
     const listCoins = Object.keys(set || {}).map((key) => {
       const item = set[key];
-      const {CoinInfo, RAW} = item;
+      const {CoinInfo, RAW, DISPLAY} = item;
       const {FullName, Name, ImageUrl} = CoinInfo;
       const price = RAW.USD.PRICE;
 
-      return {
+      const res = {
         key: Name,
         fullName: FullName,
         name: Name,
         imageUrl: link + ImageUrl,
         price,
-      };
+        symbol: DISPLAY?.USD?.TOSYMBOL,
+      }
+
+      return res;
     });
 
     return listCoins;

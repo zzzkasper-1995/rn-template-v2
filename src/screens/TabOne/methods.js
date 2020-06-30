@@ -18,8 +18,11 @@ methods.onClose = (params) => async (dispatch, getState) => {
 /** Загружаем топ монет по капитализации */
 methods.onLoadTopCoin = (params) => async (dispatch, getState) => {
   Log('methods.onLoadTopCoin', params);
+  const {page} = params;
 
-  const res = await getTopCapful();
+  const res = await getTopCapful({page});
+
+  console.log('res', res);
 
   if (!res.error) {
     const coinSet = res.Data.reduce((prev, el) => {

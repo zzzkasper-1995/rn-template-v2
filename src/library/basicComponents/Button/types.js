@@ -56,7 +56,8 @@ export type btnType = {
     | 'fullG'
     | 'ripple'
     | 'fullRipple'
-    | 'fullScale',
+    | 'fullScale'
+    | 'darkPress',
   ...contentFullType,
   ...scaleType,
   ...linkType,

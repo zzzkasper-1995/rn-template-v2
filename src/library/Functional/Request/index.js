@@ -3,25 +3,25 @@ import {store} from '../../../redux/store';
 import {setLoaderStatus} from '../../../redux/modules/loaderStatus/actions';
 
 /** Отправляем запросы */
-export default async function request(path, params = {}): Promise {
+export default async function request(path, params = {}, loadAction): Promise {
   const {dispatch} = store;
 
   try {
-    dispatch(setLoaderStatus(path, true));
+    dispatch(setLoaderStatus(loadAction, true));
     const response = await fetch(path + '?$' + objToQueryString(params));
 
     Log('request path, params', path, params);
     Log('response', response);
     if (response.ok) {
       const res = await response.json();
-      dispatch(setLoaderStatus(path, false));
+      dispatch(setLoaderStatus(loadAction, false));
       return res;
     }
 
-    dispatch(setLoaderStatus(path, false));
+    dispatch(setLoaderStatus(loadAction, false));
     return {error: true, requestStatus: response.status};
   } catch (error) {
-    dispatch(setLoaderStatus(path, false, error));
+    dispatch(setLoaderStatus(loadAction, false, error));
     return {error: true, info: error};
   }
 }
