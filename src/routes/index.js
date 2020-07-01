@@ -12,7 +12,7 @@ import {openDetails} from './action';
 /** Инициализация дерева навигаци */
 export function initRoutes() {
   Navigation.events().registerAppLaunchedListener(async () => {
-    Navigation.setDefaultOptions(settingsDefault);
+    Navigation.setDefaultOptions(settingsDefault());
     Navigation.setRoot(rootMainApp);
   });
 
@@ -53,14 +53,15 @@ export function transition(type, payload) {
       return Navigation.push(STACK_ONE, DETAILS, {
         topBar: {
           title: {
-            component: {
-              name: HEADER,
-              passProps: {
-                title: {
-                  text: title,
-                },
-              },
-            },
+            text: title,
+            // component: {
+            //   name: HEADER,
+            //   passProps: {
+            //     title: {
+            //       text: title,
+            //     },
+            //   },
+            // },
           },
         },
       });

@@ -6,4 +6,5 @@ export default {
   item: '#ffffff',
 
   primaryText: '#050505',
+  highlight: '#DDDDDD',
 };

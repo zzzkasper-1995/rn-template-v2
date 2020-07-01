@@ -50,7 +50,7 @@ class TabOne extends React.Component {
   };
 
   render() {
-    Log('render TabOne', this.props);
+    // Log('render TabOne', this.props);
     const {coins} = this.props;
 
     return (
@@ -58,6 +58,7 @@ class TabOne extends React.Component {
         <FlatList
           data={coins}
           renderItem={this.renderItem}
+          extraData={this.props.theme}
           onUploadNext={this.handleLoadNextPage}
         />
       </View>
