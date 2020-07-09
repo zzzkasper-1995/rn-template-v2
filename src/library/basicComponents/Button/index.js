@@ -53,7 +53,7 @@ const Button = (props: btnType) => {
         <FullScaleBtn {...other} isSpring={isSpring} onPress={handleOnPress} />
       );
     }
-    case 'darkPress': {
+    case 'highlight': {
       return (
         <TouchableHighlight
           underlayColor={'#DDDDDD'}

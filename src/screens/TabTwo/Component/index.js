@@ -1,5 +1,10 @@
 import React from 'react';
-import {Log, Theme, ModuleWrapper} from '../../../library/functional';
+import {
+  Log,
+  Theme,
+  ModuleWrapper,
+  Navigation,
+} from '../../../library/functional';
 import {
   Switch,
   Button,
@@ -9,6 +14,8 @@ import {
 } from '../../../library/basicComponents';
 import styles from './styles';
 import {TextStyles, ViewStyles} from '../../../theming';
+import {rootMainApp} from '../../../routes/roots';
+import {settingDark} from '../../../routes/settings';
 // import {View} from 'react-native';
 
 class TabTwo extends React.Component {
@@ -24,12 +31,20 @@ class TabTwo extends React.Component {
 
     Theme.setTheme(name);
     this.setState({themeName: name});
+
+    Navigation.setDefaultOptions(settingDark());
+    Navigation.setRoot(rootMainApp);
+    Navigation.mergeOptions(this.props.componentId, {
+      bottomTabs: {
+        currentTabIndex: 1,
+      },
+    });
   };
 
   render() {
     Log('render Tabtwo');
     const {themeName} = this.state;
-    const {onOpenDraggable} = this.props;
+    // const {} = this.props;
 
     return (
       <View type="safeArea" style={styles.safeArea}>
@@ -43,10 +58,6 @@ class TabTwo extends React.Component {
               onValueChange={this.changeTheme}
             />
           </View>
-
-          <Button onPress={onOpenDraggable}>
-            <Text>onOpenDraggable</Text>
-          </Button>
         </ScrollView>
       </View>
     );

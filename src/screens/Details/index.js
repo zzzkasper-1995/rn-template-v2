@@ -2,12 +2,12 @@ import {connect} from 'react-redux';
 import Component from './Component';
 import methods from './methods';
 import {bindActionCreators} from 'redux';
-import {slGetCoins} from '../../selectors';
+import {slGetCoins, slCurrentCoin} from '../../selectors';
 // import { menuItemsSelector } from '../selectors/app-selectors'
 
 function stateToProps(state) {
   return {
-    coins: slGetCoins(state),
+    info: slCurrentCoin(state),
   };
 }
 

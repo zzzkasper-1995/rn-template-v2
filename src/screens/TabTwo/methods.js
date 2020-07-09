@@ -1,7 +1,6 @@
-import {setMenuItem} from '../../redux/modules/app/actions';
+// import {} from '../../redux/modules/app/actions';
 import {Log} from '../../library/functional';
 import {transition} from '../../routes';
-import {openDraggable} from '../../routes/action';
 
 /**
  * @description методы для модуля TabTwo
@@ -10,11 +9,6 @@ import {openDraggable} from '../../routes/action';
 const methods = {};
 
 methods.onClose = (params) => async (dispatch, getState) => {
-  dispatch(setMenuItem('name'));
-};
-
-methods.onOpenDraggable = (params) => async (dispatch, getState) => {
-  transition(openDraggable);
 };
 
 export default methods;
