@@ -1,17 +1,24 @@
 import React from 'react';
-import {Text, View, TouchableHighlight} from 'react-native';
+import {Text, View} from 'react-native';
 import {ViewStyles, TextStyles} from '../../../../theming';
 import styles from './styles';
 import {Image, Button} from '../../../../library/basicComponents';
+import {Theme} from '../../../../library/functional';
 
 const Item = (props) => {
   // Log('render TabOne/Item', props);
   const {item, isLast, onOpenDetails} = props;
 
+  const hendlePress = () =>
+    onOpenDetails({tiket: item.key, fullName: item.fullName});
+
+  const underlayColor = Theme.getColors().highlight;
+
   return (
     <Button
-      type="darkPress"
-      onPress={() => onOpenDetails()}
+      type="highlight"
+      underlayColor={underlayColor}
+      onPress={hendlePress}
       style={ViewStyles.row}>
       <View style={[styles.content, isLast && {borderBottomWidth: 0}]}>
         <View style={[ViewStyles.row, styles.textView]}>
@@ -28,7 +35,7 @@ const Item = (props) => {
               style={[TextStyles.primary]}>
               {item.fullName}
             </Text>
-            <Text style={TextStyles.primary}>{item.name}</Text>
+            <Text style={[TextStyles.primary, styles.tiket]}>{item.name}</Text>
           </View>
         </View>
 

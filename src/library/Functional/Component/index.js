@@ -71,8 +71,11 @@ export default function ModuleWrapper(Component, params = {}) {
 
     render() {
       const {theme} = this.state;
+      const {componentId} = this.props;
 
-      return <Component theme={theme} {...this.props} />;
+      return (
+        <Component theme={theme} componentId={componentId} {...this.props} />
+      );
     }
   };
 }

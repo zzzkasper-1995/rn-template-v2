@@ -40,15 +40,16 @@ export const rootMainApp = {
                       height: 56,
                       title: {
                         height: 56,
-                        component: {
-                          name: HEADER,
-                          passProps: {
-                            title: {
-                              text: I.text('Coins'),
-                              // icon: assets.LOGO_TEXT,
-                            },
-                          },
-                        },
+                        text: I.text('Coins'),
+                        // component: {
+                        //   name: HEADER,
+                        //   passProps: {
+                        //     title: {
+                        //       text: I.text('Coins'),
+                        //       // icon: assets.LOGO_TEXT,
+                        //     },
+                        //   },
+                        // },
                       },
                     },
                   },
@@ -80,15 +81,16 @@ export const rootMainApp = {
                       height: 56,
                       title: {
                         height: 56,
-                        component: {
-                          name: HEADER,
-                          passProps: {
-                            title: {
-                              text: I.text('Settings'),
-                              // icon: assets.LOGO_TEXT,
-                            },
-                          },
-                        },
+                        text: I.text('Settings'),
+                        // component: {
+                        //   name: HEADER,
+                        //   passProps: {
+                        //     title: {
+                        //       text: I.text('Settings'),
+                        //       // icon: assets.LOGO_TEXT,
+                        //     },
+                        //   },
+                        // },
                       },
                     },
                   },

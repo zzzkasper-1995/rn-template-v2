@@ -1,26 +1,18 @@
-import {Navigation, Log} from '../library/functional';
+import {Navigation, Log, SplashScreen, I} from '../library/functional';
 import {rootMainApp} from './roots';
-import {
-  TAB_ONE,
-  TAB_TWO,
-  DRAGGABLE,
-  DETAILS,
-  STACK_ONE,
-  HEADER,
-} from './screenName';
+import {TAB_ONE, TAB_TWO, DETAILS, STACK_ONE, HEADER} from './screenName';
 
 import TabTwo from '../screens/TabTwo';
 import TabOne from '../screens/TabOne';
-import Draggable from '../screens/Draggable';
 import Details from '../screens/Details';
 import Header from '../screens/Header';
 import {settingsDefault} from './settings';
-import {openDraggable, openDetails} from './action';
+import {openDetails} from './action';
 
 /** Инициализация дерева навигаци */
 export function initRoutes() {
   Navigation.events().registerAppLaunchedListener(async () => {
-    Navigation.setDefaultOptions(settingsDefault);
+    Navigation.setDefaultOptions(settingsDefault());
     Navigation.setRoot(rootMainApp);
   });
 
@@ -44,24 +36,35 @@ export function initRoutes() {
 export function initModules() {
   Navigation.registerComponent(TAB_ONE, TabOne);
   Navigation.registerComponent(TAB_TWO, TabTwo);
-  Navigation.registerComponent(DRAGGABLE, Draggable);
   Navigation.registerComponent(DETAILS, Details);
   Navigation.registerComponent(HEADER, Header);
+
+  SplashScreen.hide();
 }
 
 /** Карта переходов по экранам */
-export function transition(type) {
-  Log('TRANSITION ', type);
+export function transition(type, payload) {
+  Log('TRANSITION ', type, payload);
 
   switch (type) {
-    case openDraggable: {
-      return Navigation.showModal(DRAGGABLE, {
-        modalPresentationStyle: 'overCurrentContext',
-        modalTransitionStyle: 'crossDissolve',
-      });
-    }
     case openDetails: {
-      return Navigation.push(STACK_ONE, DETAILS);
+      const {title} = payload;
+
+      return Navigation.push(STACK_ONE, DETAILS, {
+        topBar: {
+          title: {
+            text: title,
+            // component: {
+            //   name: HEADER,
+            //   passProps: {
+            //     title: {
+            //       text: title,
+            //     },
+            //   },
+            // },
+          },
+        },
+      });
     }
   }
 }
