@@ -31,7 +31,7 @@
     "react-native-linear-gradient": "^2.5.6",
     "react-native-localize": "^1.4.0",
     "react-native-navigation": "^6.6.0",
-    "react-native-reanimated": "^1.8.0",
+    "react-native-reanimated": "^2.10.0",
     "react-native-render-html": "^4.2.0",
     "react-native-simple-toast": "^1.1.2",
     "react-native-splash-screen": "^3.2.0",
